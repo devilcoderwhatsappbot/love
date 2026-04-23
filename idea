@@ -1,0 +1,1668 @@
+check this and use this also as idea UI UX <!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සුදු සර්පයාගේ පුරාවෘත්තය | සුදු මැණිකා ❤️🖤</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --red-primary: #c41e3a;
+            --red-light: #ff3355;
+            --red-glow: rgba(196, 30, 58, 0.5);
+            --red-soft: #ff6b7a;
+            --red-dark: #8b1a2e;
+            --red-deep: #4a0d1a;
+            --red-rose: #e63956;
+            --text-primary: #e0e0e0;
+            --text-secondary: #888888;
+            --text-white: #ffffff;
+            --border-glow: rgba(196, 30, 58, 0.3);
+            --shadow-red: rgba(196, 30, 58, 0.2);
+            --black-pure: #000000;
+            --black-rich: #0d0d0d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red-dark);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red-primary);
+        }
+
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--red-light) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(74, 13, 26, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 0%, rgba(196, 30, 58, 0.1) 0%, transparent 70%),
+                var(--bg-primary);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(180deg, var(--black-rich) 0%, transparent 20%, transparent 80%, var(--bg-primary) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .snake-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: pulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px var(--red-glow));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-title {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text-white) 0%, var(--red-soft) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            text-shadow: none;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle-en {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            color: var(--red-primary);
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hearts {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            filter: drop-shadow(0 0 15px var(--red-glow));
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Chapter Navigation */
+        .chapter-nav {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .chapter-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border-glow);
+            border-radius: 50%;
+            color: var(--red-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: rgba(196, 30, 58, 0.05);
+        }
+
+        .chapter-nav a:hover {
+            background: var(--red-primary);
+            color: var(--text-white);
+            transform: scale(1.15);
+            box-shadow: 0 0 25px var(--red-glow);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--red-primary);
+            border-bottom: 2px solid var(--red-primary);
+            transform: rotate(45deg);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* Chapter Card */
+        .chapter {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chapter-card {
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(196, 30, 58, 0.15);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-card:hover {
+            border-color: rgba(196, 30, 58, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--shadow-red);
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--red-primary), var(--red-soft), transparent);
+        }
+
+        .chapter-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(196, 30, 58, 0.2);
+        }
+
+        .chapter-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+            border-radius: 50%;
+            color: var(--text-white);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px var(--shadow-red);
+        }
+
+        .chapter-title {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 600;
+            color: var(--text-white);
+            line-height: 1.4;
+        }
+
+        /* Visualization Box */
+        .visualize {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.08), rgba(74, 13, 26, 0.15));
+            border-left: 4px solid var(--red-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .visualize::before {
+            content: '👁️';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: var(--bg-card);
+            padding: 4px;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .visualize-label {
+            font-weight: 600;
+            color: var(--red-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--red-soft);
+            margin: 1.5rem 0 1rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid var(--red-primary);
+        }
+
+        /* Story Text */
+        .story-text {
+            font-size: 1rem;
+            line-height: 2;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .story-text::first-letter {
+            font-size: 1.2em;
+            color: var(--red-primary);
+        }
+
+        /* Dialog */
+        .dialog {
+            background: rgba(196, 30, 58, 0.05);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-white);
+            border-left: 3px solid var(--red-primary);
+            position: relative;
+        }
+
+        .dialog::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--red-primary);
+            position: absolute;
+            top: -5px;
+            left: 8px;
+            opacity: 0.5;
+            font-family: 'Cinzel', serif;
+        }
+
+        .dialog p {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(196, 30, 58, 0.15);
+            background: linear-gradient(180deg, var(--bg-primary), var(--black-rich));
+        }
+
+        .footer-hearts {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 10px var(--red-glow));
+        }
+
+        .footer-message {
+            font-size: 1.2rem;
+            color: var(--red-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-sub {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-credit {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(196, 30, 58, 0.1);
+        }
+
+        .footer-tagline {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--red-dark);
+            letter-spacing: 0.15em;
+            margin-top: 1.5rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--red-primary);
+            color: var(--text-white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 15px var(--shadow-red);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px var(--red-glow);
+            background: var(--red-light);
+        }
+
+        /* Sticky Chapter Nav */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 1rem;
+            z-index: 50;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            border-bottom: 1px solid rgba(196, 30, 58, 0.2);
+        }
+
+        .sticky-nav.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .sticky-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(196, 30, 58, 0.3);
+            border-radius: 50%;
+            color: var(--red-primary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .sticky-nav a:hover,
+        .sticky-nav a.active {
+            background: var(--red-primary);
+            color: var(--text-white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-card {
+                padding: 1.5rem;
+            }
+
+            .chapter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .chapter-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .visualize {
+                padding: 1.2rem;
+            }
+
+            .chapter-nav a {
+                width: 36px;
+                height: 36px;
+                font-size: 0.8rem;
+            }
+
+            .main-content {
+                padding: 1rem 1rem 3rem;
+            }
+
+            .sticky-nav-inner {
+                gap: 0.3rem;
+            }
+
+            .sticky-nav a {
+                width: 30px;
+                height: 30px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .hero-subtitle-en {
+                font-size: 0.8rem;
+            }
+
+            .chapter-card {
+                padding: 1.2rem;
+                border-radius: 14px;
+            }
+
+            .story-text {
+                font-size: 0.95rem;
+                line-height: 1.8;
+            }
+
+            .chapter-nav {
+                gap: 0.4rem;
+            }
+
+            .chapter-nav a {
+                width: 32px;
+                height: 32px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glow effects */
+        .glow-text {
+            text-shadow: 0 0 10px var(--red-glow);
+        }
+
+        /* Decorative divider */
+        .divider {
+            text-align: center;
+            margin: 3rem 0;
+            font-size: 1.5rem;
+            color: var(--red-primary);
+            opacity: 0.6;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '✦';
+            margin: 0 1rem;
+            font-size: 0.8rem;
+            vertical-align: middle;
+            color: var(--red-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="sticky-nav-inner">
+            <a href="#hero">⬆</a>
+            <a href="#ch1">❶</a>
+            <a href="#ch2">❷</a>
+            <a href="#ch3">❸</a>
+            <a href="#ch4">❹</a>
+            <a href="#ch5">❺</a>
+            <a href="#ch6">❻</a>
+            <a href="#ch7">❼</a>
+            <a href="#ch8">❽</a>
+            <a href="#ch9">❾</a>
+            <a href="#ch10">❿</a>
+            <a href="#ch11">⑪</a>
+            <a href="#ch12">⑫</a>
+            <a href="#ch13">⑬</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="snake-icon">🐍</div>
+            <h1 class="hero-title">සුදු සර්පයාගේ පුරාවෘත්තය</h1>
+            <p class="hero-subtitle-en">Legend of the White Snake · Bai She Zhuan</p>
+            <p class="hero-tagline">අවුරුදු දහසක ආදරය, විරහව, පොරොන්දුව සහ සදාකාලික යළි හමුවීම</p>
+            <div class="hearts">❤️🖤</div>
+            
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <a href="#ch1">❶</a>
+                <a href="#ch2">❷</a>
+                <a href="#ch3">❸</a>
+                <a href="#ch4">❹</a>
+                <a href="#ch5">❺</a>
+                <a href="#ch6">❻</a>
+                <a href="#ch7">❼</a>
+                <a href="#ch8">❽</a>
+                <a href="#ch9">❾</a>
+                <a href="#ch10">❿</a>
+                <a href="#ch11">⑪</a>
+                <a href="#ch12">⑫</a>
+                <a href="#ch13">⑬</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Chapter 1 -->
+        <section class="chapter" id="ch1">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">1</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 1: අමරණීය වීමේ පිපාසය</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    තද අඳුරක්. චීනයේ Tang රාජවංශ සමය. ගමක් මැද හමුදා සෙබළු දුමාරයක් මැදින් අශ්වයන් පිට නැගී කඩාගෙන එති. ඔවුන්ගේ අතේ රාජකීය සන්නසක් ඇත. සෙබළෙක් කෑගසයි: "අධිරාජ්‍ය නියෝගයයි! අමරණීය වීමේ රහස සොයාගැනීමට සර්පයන් අවශ්‍යයි! ගමේ සිටින සියලු සර්පයන් අල්ලා දෙනු! අණ නොපිළිපදින්නාට මරණ දඬුවමයි!"
+                </div>
+
+                <h3 class="section-title">ගමේ භීතිය</h3>
+                <p class="story-text">ගම්වැසියෝ බියෙන් වෙව්ලති. මව්වරු දරුවන් තුරුළු කරගනිති. පිරිමින් කැත්ත, උදැලි රැගෙන වනයට දිව යති. සර්ප ගුල් හාරති, ගල් පෙරළති. සර්පයන්ගේ භීත කෑගැසීම් මුළු වනය පුරා දෝංකාර දෙයි.</p>
+
+                <h3 class="section-title">වනය තුළ</h3>
+                <p class="story-text">ගිනි මැලයක් අසල, අනෙක් සර්පයන්ගෙන් වෙන් වී රූමත් තරුණියක් වැඩ සිටී. සුදු පැහැති සේද වස්ත්‍රයක් ඇඳි ඇයගේ කේශ කලාපය කළු පැහැති ය, දිගු ය. සඳ එළිය ඇගේ මුහුණ මත වැටී දිලිසෙයි. ඇය Blanca ය. අවුරුදු පන්සීයක් භාවනා කර මනුෂ්‍ය වෙස් ගැනීමේ හැකියාව ලත් සුදු සර්ප දේවතාවිය ය.</p>
+                <p class="story-text">ඇගේ දෑස් තුළ ඇත්තේ සීතල වෛරයකි. ගම දෙසින් ඇසෙන සර්පයන්ගේ විලාප හඬ අසා ඇය මිමිණියා ය:</p>
+                
+                <div class="dialog">
+                    <p>මිනිස්සු... ඔවුන්ට අවශ්‍ය වන්නේ හැමදාම බලය පමණයි. අන් ජීවිත ගැන නොසිතති.</p>
+                </div>
+
+                <p class="story-text">Blanca ගේ ගුරුවරයා සෙවනැල්ලක් සේ පැමිණ පවසයි:</p>
+                <div class="dialog">
+                    <p>Blanca, කාලය පැමිණ ඇත. අධිරාජ්‍යයේ ජෙනරාල්ව මරා දමන්න. ඔවුන්ගේ නියෝගය නැවැත්වුවහොත් අපේ ජාතිය බේරෙනු ඇත.</p>
+                </div>
+
+                <p class="story-text">Blanca සෙමෙන් නැගිටියි. ඇගේ ශරීරය වටා හරිත පැහැති මායා ආලෝකයක් දිස් වෙයි. ඇය අහස දෙස බලා පවසයි:</p>
+                <div class="dialog">
+                    <p>මේ මිනිසුන්ට පාඩමක් ඉගැන්විය යුතුයි.</p>
+                </div>
+
+                <p class="story-text">Blanca සුදු දුමාරයක් වී අහසට නැගෙයි. ඇගේ ගමන අධිරාජ්‍ය මාලිගාව දෙසට ය. පළිගැනීමේ ගමන ඇරඹෙයි.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section class="chapter" id="ch2">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">2</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 2: ඝාතන උත්සාහය අසාර්ථක වීම</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    රාත්‍රිය. අධිරාජ්‍ය මාලිගාව. පහන් දහස් ගණනින් මුළු මාලිගාවම දහවලක් සේ ආලෝකමත් ව ඇත. රතු පලස් එලූ විශාල ශාලාවක ජෙනරාල්වරයා සෙබළුන්ට අණ දෙයි. මේසය මත සිතියමකි. "තවත් සර්පයන් අවශ්‍යයි! හෙට හිරු උදාවට පෙර සර්පයන් දහසක් අල්ලා දෙනු!"
+                </div>
+
+                <h3 class="section-title">Blanca ගේ ප්‍රහාරය</h3>
+                <p class="story-text">එක්වරම ජනෙල් වීදුරු කුඩු වී සුදු දුමාරයක් සමඟ Blanca ශාලාව මැදට පැමිණෙයි. ඇගේ සුදු වස්ත්‍රය සුළඟට ලෙල දෙයි. දෑස් දිලිසෙයි. සෙබළු බියෙන් කඩු කොපුවෙන් අදිති.</p>
+                <p class="story-text">Blanca අත දිගු කරයි. ඇගේ අතින් හරිත පැහැති මායා සර්පයෙක් මැවෙයි.</p>
+                <div class="dialog">
+                    <p>මගේ ජාතිය විනාශ කරන ඔබට මරණය!</p>
+                </div>
+                <p class="story-text">ඇය ඒ සර්පයා ජෙනරාල් දෙසට යවයි.</p>
+
+                <h3 class="section-title">Dark General ගේ පැමිණීම</h3>
+                <p class="story-text">ජෙනරාල්ට මායා සර්පයා පහර දීමට ආසන්න වන මොහොතේ, කළු සිවුරක් ඇඳි අයෙක් ජෙනරාල් ඉදිරියට පනියි. ඔහු Dark General ය - ජෙනරාල්ගේ ගුරුවරයා, බලවත් Taoist මායාකරුවෙකි.</p>
+                <p class="story-text">Dark General දෑත් ඔසවයි. ඔහුගේ අතින් කළු පැහැති යෝධ තඹ සර්ප මායාවක් මැවෙයි. Blanca ගේ හරිත සර්පයා සහ Dark General ගේ තඹ සර්පයා මාලිගාව මැද ගැටෙති. පොළව දෙදරයි. කණු කඩා වැටෙයි. පහන් කුඩු වෙයි.</p>
+                <p class="story-text">Dark General සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>පුංචි සර්ප පැටියෙක් මට අභියෝග කරනවා ද?</p>
+                </div>
+                <p class="story-text">ඔහු අවසන් බලවත් මායා ප්‍රහාරයක් එල්ල කරයි. කළු අකුණක් වැනි යමක් Blanca ගේ පපුවට වදියි.</p>
+                <p class="story-text">Blanca "ආහ්!" ගා කෑගසා මාලිගාවේ වීදුරු වහලය කඩාගෙන අහසට විසි වෙයි. ඇගේ මායා බලය, මතකය, ශක්තිය සියල්ල එකවර අතුරුදහන් වෙයි. ඇගේ සිරුර සීතල වී, සුදු වස්ත්‍රය ලේ වලින් තෙත් වී අහසින් පහළ ගඟකට වැටෙයි. ඇගේ අතේ ඇත්තේ ජේඩ් හෙයාපින් පමණි. ඇයට කිසිවක් මතක නැත.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section class="chapter" id="ch3">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">3</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 3: ගංගා ඉවුරේ කුලුඳුල් හමුව</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    පාන්දර. හිරු එළිය ගඟ මත වැටී රන්වන් පැහැ වී ඇත. කුරුල්ලන් ගී ගයති. ගං ඉවුරේ බට ගස් සුළඟට සෙලවෙයි. Xuan නම් තරුණයෙක් ගල් තලාවක් මත සිට බට ලීයෙන් මසුන් අල්ලයි. ඔහු අසල සුදු පැහැති බල්ලෙක් වූ Dudou දුව පැන සෙල්ලම් කරයි. Xuan ගේ වස්ත්‍ර පැරණි ය, එහෙත් මුහුණේ අහිංසක සිනාවකි.
+                </div>
+
+                <h3 class="section-title">බේරා ගැනීම</h3>
+                <p class="story-text">Dudou එක්වරම බුරන්නට වෙයි. ගඟ දෙසට දුවයි. Xuan බලන විට සුදු වස්ත්‍රයක් ඇඳි කාන්තාවක් ජලයේ පාවෙමින් එයි. කේශ කලාපය ජලයේ විසිරී ඇත. මුහුණ සුදුමැලි ය.</p>
+                <div class="dialog">
+                    <p>දෙවියනේ! කෙල්ලෙක්!</p>
+                </div>
+                <p class="story-text">Xuan බට ලීය විසි කර එකවරම ජලයට පනියි. Dudou ද ඔහු සමඟ ය. Xuan අමාරුවෙන් Blanca ව ඇදගෙන ගොඩට ගනියි.</p>
+                <p class="story-text">Xuan, Blanca ව තණකොළ මත තබා ඇගේ මුහුණට තට්ටු කරයි.</p>
+                <div class="dialog">
+                    <p>නංගී, නංගී ඇහැරෙන්න!</p>
+                </div>
+                <p class="story-text">Dudou ඇවිත් Blanca ගේ මුහුණ ලෙවකයි.</p>
+                <p class="story-text">Blanca ගේ ඇසිපිය සෙමෙන් සැලෙයි. ඇය කෙලින්ම බලන්නේ නිල් අහස දෙස ය. ඉන්පසු Xuan ගේ මුහුණ දෙස ය. Xuan ගේ දෑස් විශාල ය, කළු ය, අහිංසක ය.</p>
+                <p class="story-text">Blanca කතා කිරීමට උත්සාහ කරයි.</p>
+                <div class="dialog">
+                    <p>මම... මම...</p>
+                </div>
+                <p class="story-text">ඇගේ මුව වෙව්ලයි. Xuan සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>හරි හරි, කලබල වෙන්න එපා. ඔබ දැන් ආරක්ෂිතයි.</p>
+                </div>
+
+                <h3 class="section-title">මතකය නැති වීම</h3>
+                <p class="story-text">Blanca වටපිට බලයි.</p>
+                <div class="dialog">
+                    <p>මේ... මේ කොහේද? ඔබ කවුද? මම... මම කවුද?</p>
+                </div>
+                <p class="story-text">Xuan ගේ සිනාව අතුරුදහන් වෙයි.</p>
+                <div class="dialog">
+                    <p>ඔබට ඔබේ නමවත් මතක නැද්ද?</p>
+                </div>
+                <p class="story-text">Blanca හිස අල්ලා ගනියි.</p>
+                <div class="dialog">
+                    <p>නැහැ... කිසිවක් මතක නැහැ. කළුවරයි... සියල්ල කළුවරයි.</p>
+                </div>
+
+                <p class="story-text">එක්වරම Blanca ගේ අතේ තිබූ ජේඩ් හෙයාපින් එකෙන් කොළ පැහැති ආලෝකයක් විහිදෙයි. හෙයාපින් එක අහසට පාවී කැරකෙයි. Xuan සහ Dudou බියෙන් පසුපසට යති.</p>
+                <div class="dialog">
+                    <p>මේක... මේක මගේ විය යුතුයි.</p>
+                </div>
+                <p class="story-text">හෙයාපින් එක නැවත ඇගේ අතට පැමිණෙයි. එහෙත් ඇයට එය කුමක්දැයි තේරුම් ගත නොහැක.</p>
+                <p class="story-text">Xuan, Blanca ගේ අසරණ මුහුණ දෙස බලා සුසුමක් හෙළයි.</p>
+                <div class="dialog">
+                    <p>හරි. ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න. අපි ඔබේ මතකය සොයමු. මගේ නම Xuan. මේ ඉන්නේ Dudou.</p>
+                </div>
+                <p class="story-text">Dudou වලිගය වනයි. පළිගැනීමේ කතාව, අහිංසක හමුවීමකින් අලුත් මඟකට හැරෙයි.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 4 -->
+        <section class="chapter" id="ch4">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">4</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 4: කොවුල් ගුහාවේ පෙම් පළහිලව්ව</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    රාත්‍රිය. අහසේ විශාල සඳක්. තරු පිරී ඇත. පාළු කොවුල් ගුහාව - ගුහාවේ වහලයේ සහ බිත්තිවල දිලිසෙන නිල් පැහැති කොවුල් පැටවුන් දහස් ගණනකි. ඔවුන්ගේ ආලෝකයෙන් මුළු ගුහාවම මැණික් ගුහාවක් සේ දිස් වෙයි. බිම නිසල ජලය. ජලයේ සඳේ සෙවනැල්ල වැටී ඇත.
+                </div>
+
+                <h3 class="section-title">බෝට්ටු ගමන</h3>
+                <p class="story-text">Xuan කුඩා ලී බෝට්ටුවක් පදියි. Blanca බෝට්ටුවේ ඉදිරියෙන් වාඩි වී වටපිට බලයි. ඇගේ සුදු වස්ත්‍රයත් කොවුල් ආලෝකයත් එක් වී ඇය සුරංගනාවියක සේ පෙනේ. Dudou බෝට්ටුවේ පිටුපසින් වාඩි වී කොවුල් පැටවුන් දෙස බලා වලිගය වනයි.</p>
+                <p class="story-text">Xuan සෙමෙන් හබල පදියි.</p>
+                <div class="dialog">
+                    <p>මේ ගුහාවට ගමේ අය එන්නේ නැහැ. ඔවුන් කියන්නේ මෙහි හොල්මන් සිටින බවයි. එහෙත් මට නම් මේ ලෝකයේ ලස්සනම තැන මෙයයි.</p>
+                </div>
+
+                <p class="story-text">Blanca කොවුල් පැටවෙකු දෙසට අත දිගු කරයි. පැටියා පැමිණ ඇගේ ඇඟිල්ල මත වාඩි වෙයි. Blanca ගේ මුහුණේ පළමු වරට ස්වභාවික සිනාවක්. සීතල නැති, වෛර නැති, පිරිසිදු සිනාවක්.</p>
+
+                <h3 class="section-title">"ආදරය කියන්නේ මොකක්ද?"</h3>
+                <p class="story-text">Xuan බෝට්ටුව නවතා හබල පැත්තකින් තබයි. ඔහු Blanca දෙස බලාගෙන අසයි:</p>
+                <div class="dialog">
+                    <p>ඔබට මතක නැති නිසා මම අහන්නේ... ආදරය කියන්නේ මොකක්ද කියලා ඔබ දන්නවාද?</p>
+                </div>
+                <p class="story-text">Blanca කොවුල් පැටියා දෙස බලාගෙන සිටියි.</p>
+                <div class="dialog">
+                    <p>ආදරය...? මම දන්නේ නැහැ... එහෙත් ඒ වචනය ඇසෙන විට මෙතන රිදෙනවා.</p>
+                </div>
+                <p class="story-text">ඇය පපුවට අත තබයි.</p>
+                <p class="story-text">Xuan සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>මමත් හරියටම දන්නේ නැහැ. එහෙත් මට හිතෙන්නේ... ආදරය කියන්නේ කෙනෙකු වෙනුවෙන් තමන්ගේ ලස්සනම දේ දීලා දමන්න හිතෙන එක විය යුතුයි.</p>
+                </div>
+
+                <p class="story-text">Blanca, Xuan ගේ දෑස් දෙස බලා සිටියි. ඒ දෑස් තුළ බොරුවක් නැත. වෛරයක් නැත. ඇත්තේ ඇය වෙනුවෙන්ම වූ අහිංසකත්වයකි. ගුහාවේ කොවුල් ආලෝක සමඟ Blanca ගේ සිතේ තිබූ මිනිසුන් ගැන වෛරය සෙමෙන් දිය වී යන්නට පටන් ගනියි.</p>
+                <div class="dialog">
+                    <p>මිනිස්සු... හැමෝම නරක නැහැ නේද?</p>
+                </div>
+                <p class="story-text">Xuan හිස වනයි.</p>
+                <div class="dialog">
+                    <p>නැති වෙන්න ඇති. සර්පයන් හැමෝම නරක නැහැ වගේ.</p>
+                </div>
+
+                <p class="story-text">වෛරයෙන් ආරම්භ වූ කතාව, ආදරය නම් අලුත් හැඟීමකින් ලස්සන වන්නට පටන් ගනියි.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section class="chapter" id="ch5">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">5</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 5: නරි කඩේදී හෙළිවන සත්‍යය</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    මීදුමෙන් වැසුණු වනාන්තරයක් මැද අමුතු කඩයක්. කඩයේ වහලේ, බිත්තිවල, ගස් අතුවල මුහුණු සිය ගණනක් එල්ලා ඇත. සිනාසෙන මුහුණු, හඬන මුහුණු, බිය වූ මුහුණු. රාත්‍රියේ ඒ මුහුණුවල දෑස් දිලිසෙයි. කඩය ඇතුළත රතු පහන් ආලෝකය. සෑම තැනම බෙහෙත් බෝතල්, පොත්, අමුතු සතුන්ගේ ඇටකටු. කඩයේ හිමිකාරිය නරි තරුණිය ය. ලස්සන කොළ පැහැති කිමෝනාවක් ඇඳ, හිසේ නරි කන් දෙකක් ඇත. සිනාසෙන විට උල් දත් පෙනේ.
+                </div>
+
+                <h3 class="section-title">මිල: "වඩාත්ම වටිනා දේ"</h3>
+                <p class="story-text">Xuan, Blanca ව කැටුව කඩයට පැමිණෙයි. Dudou බියෙන් Xuan ගේ කකුල් අතර සැඟවෙයි. නරි තරුණිය Xuan දෙස බලා සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>ආ කොල්ලා, අද මොනවා ද ඕන? සර්ප විෂක් ද? ආදර බෙහෙතක් ද?</p>
+                </div>
+                <p class="story-text">Xuan පවසයි:</p>
+                <div class="dialog">
+                    <p>අක්කේ, මේ නංගිට ඇගේ මතකය නැති වෙලා. උදව්වක් කරන්න පුළුවන් ද?</p>
+                </div>
+                <p class="story-text">නරි තරුණිය Blanca ව උඩ සිට පහළට බලයි. ඇගේ නාසය උඩට ඇද වාතය ඉඹියි.</p>
+                <div class="dialog">
+                    <p>ම්ම්... සර්පයෙකුගේ ගඳයි. එහෙත්... පිරිසිදු එකක්. අවුරුදු පන්සීයකට වඩා පැරණි එකක්.</p>
+                </div>
+                <p class="story-text">නරි තරුණිය විශාල ස්ඵටික බෝලයක් මේසය මත තබයි.</p>
+                <div class="dialog">
+                    <p>මතකය දෙන්න පුළුවන්. එහෙත් මිල ගෙවිය යුතුයි. ඔබේ ජීවිතයේ 'වඩාත්ම වටිනා දේ' මට දෙන්න.</p>
+                </div>
+
+                <p class="story-text">Blanca එක්වරම ඇගේ පිටුපසට අත දමයි. ඇගේ ඇඟිලි තුඩුවලින් කොළ පැහැති ආලෝකයක් පැමිණෙයි.</p>
+                <div class="dialog">
+                    <p>මගේ වලිගය...</p>
+                </div>
+                <p class="story-text">ඇය මිමිණියි.</p>
+
+                <h3 class="section-title">Xuan ගේ කැපකිරීම</h3>
+                <p class="story-text">Blanca වලිගය දීමට සූදානම් වන විට Xuan "එපා!" ගා කෑගසයි. ඔහු තම අතේ තිබූ පැරණි, ගෙවී ගිය බට සැරයටිය නරි තරුණියට දිගු කරයි. නරි තරුණිය සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>හා! පැරණි බට ලීයක් ද ඔබේ වටිනාම දේ?</p>
+                </div>
+                <p class="story-text">Xuan ගේ දෑස්වල කඳුළු පිරේ.</p>
+                <div class="dialog">
+                    <p>ඔව්. මේක මගේ තාත්තා මට දීපු එකම දේ. තාත්තා මැරෙන්න කලින් කිව්වා 'මේකෙන් පරිස්සමින් ජීවත් වෙයන්' කියලා. මගේ ජීවිතයේ තියෙන ලස්සනම, වටිනාම මතකය මේක.</p>
+                </div>
+
+                <h3 class="section-title">සත්‍යය එළි වීම</h3>
+                <p class="story-text">නරි තරුණිය Xuan දෙසත් Blanca දෙසත් මාරුවෙන් මාරුවට බලයි. ඇය සිනාව නවතා බැරෑරුම් වෙයි.</p>
+                <div class="dialog">
+                    <p>හරි. ඔබේ හිත පිරිසිදුයි කොල්ලෝ.</p>
+                </div>
+                <p class="story-text">ඇය ස්ඵටික බෝලය Blanca ගේ නළලට තබයි.</p>
+                <p class="story-text">එක්වරම Blanca ගේ සිතට පැරණි දර්ශන ගලා එයි. සර්පයෙකුව භාවනා කළ අයුරු, ගුරුවරයා, ජෙනරාල්ව මැරීමට ගිය අයුරු, Dark General, ගඟට වැටුණු අයුරු... සියල්ල.</p>
+                <p class="story-text">Blanca "අම්මෝ!" ගා දණ ගසයි.</p>
+                <div class="dialog">
+                    <p>මම... මම සුදු සර්ප දේවතාවියක්... Blanca... මම මිනිස්සු මරන්න ආපු කෙනෙක්...</p>
+                </div>
+
+                <p class="story-text">Xuan බියෙන් පසුපසට යයි.</p>
+                <div class="dialog">
+                    <p>සර්ප... දේවතාවියක්?</p>
+                </div>
+                <p class="story-text">Dudou බුරයි. එහෙත් Xuan, බියෙන් හඬන Blanca දෙස බලයි. ඔහු සෙමෙන් ළං වී ඇගේ උරහිසට අත තබයි.</p>
+                <div class="dialog">
+                    <p>ඔබ මොන ජාතියක වුණත් මට ඔබ ඔබමයි Blanca. ඔබ මගේ යාළුවා.</p>
+                </div>
+
+                <p class="story-text">Blanca, Xuan දෙස අදහාගත නොහැකිව බලා සිටියි. ඇය මැරීමට පැමිණි මනුෂ්‍ය ජාතියේ කොල්ලෙක් ඇයව බදා ගනියි. Blanca ගේ සිතේ මිනිසුන් ගැන තිබූ අවසන් වෛර බිඳී ඒ මොහොතේ නැති වී යයි.</p>
+                <p class="story-text">නරි තරුණිය Xuan ට බට සැරයටිය ආපසු දෙයි.</p>
+                <div class="dialog">
+                    <p>තියාගන්න කොල්ලෝ. ආදරය ඉස්සරහ මිලක් නැහැ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section class="chapter" id="ch6">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">6</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 6: හරිත සර්පයා Verta ගේ ආගමනය</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    අහස කළු කරගෙන එන කුණාටුවක්. ගම මැද ගිනි අරන් දැවෙන ගස්. මිනිස්සු කෑගසමින් දුවති. "කුණාටුවක්! ලොකු කුණාටුවක් එනවා!" එක්වරම අහස දෙබෑ කරගෙන හරිත පැහැති අකුණක් පොළොවට ගසයි. දුමාරය මැදින් කොළ පැහැති සේද වස්ත්‍රයක් ඇඳි සැර තරුණියක් බිමට බසියි. කේශ කලාපය කළු ය, දෑස් දිලිසෙයි, තොල් රතු ය. ඇය Verta - හරිත සර්ප දේවතාවිය, Blanca ගේ නැගණිය.
+                </div>
+
+                <h3 class="section-title">සහෝදරියන්ගේ හමුව</h3>
+                <p class="story-text">Verta වටපිට බලයි.</p>
+                <div class="dialog">
+                    <p>අක්කේ! අක්කේ කොහෙද ඉන්නේ!</p>
+                </div>
+                <p class="story-text">ඇගේ කටහඬට ගස් ගල් හෙල්ලෙයි. ඇයට මනුෂ්‍ය ලෝකයට පැමිණීමට සිදු වූයේ අක්කා සොයා ගැනීමට ය.</p>
+                <p class="story-text">ඒ වන විට Xuan, Blanca සමඟ වනය මැද පැල්පතේ සිටියි. Blanca තමන් සර්ප දේවතාවියක් බව දැනගත් පසු Xuan ට දුකකි.</p>
+                <div class="dialog">
+                    <p>ඔබ මාව දාලා යයි ද?</p>
+                </div>
+                <p class="story-text">Xuan අසයි.</p>
+
+                <p class="story-text">එක්වරම පැල්පතේ වහලය ගැලවී යයි. සුළඟට සියල්ල විසි වෙයි. Verta අහසින් කඩාගෙන බසියි.</p>
+                <div class="dialog">
+                    <p>අක්කේ!</p>
+                </div>
+                <p class="story-text">Verta, Blanca ව දුටු වහාම දුවගෙන ඇවිත් බදා ගනියි.</p>
+                <div class="dialog">
+                    <p>මම හිතුවා ඔබ මැරුණා කියලා! අවුරුදු ගානක් ඔබව හෙව්වා!</p>
+                </div>
+                <p class="story-text">Blanca ද නැගණිය බදා ගනියි.</p>
+                <div class="dialog">
+                    <p>Verta... මල්ලී...</p>
+                </div>
+                <p class="story-text">දෙදෙනාම හඬති.</p>
+
+                <h3 class="section-title">Xuan සමඟ ගැටුම</h3>
+                <p class="story-text">Verta එක්වරම Xuan ව දකියි. Dudou බියෙන් බුරයි. Verta ගේ දෑස් රතු වෙයි.</p>
+                <div class="dialog">
+                    <p>මනුස්සයෙක්?! අක්කේ ඔබ මනුස්සයෙක් එක්ක ඉන්නවා ද? ඔවුන් අපේ ජාතිය විනාශ කරනවා! ඔබට පිස්සු ද?</p>
+                </div>
+                <p class="story-text">Verta අත දිගු කරයි. අතින් හරිත පැහැති මායා සර්පයෙක් මැවෙයි. Xuan ව මැරීමට ය.</p>
+                <p class="story-text">Blanca එක්වරම Xuan ඉදිරියට පනියි.</p>
+                <div class="dialog">
+                    <p>එපා Verta! ඔහුට අත තියන්න එපා! Xuan මගේ ජීවිතය බේරාගත්තා. ඔහු අනිත් මිනිස්සු වගේ නෙවෙයි!</p>
+                </div>
+                <p class="story-text">Verta ට කෝපය පැමිණෙයි.</p>
+                <div class="dialog">
+                    <p>අක්කේ ඔබට මොනවා වෙලා ද? මනුස්සයෙක් වෙනුවෙන් ඔබේම නැගණියට විරුද්ධ වෙනවා ද?</p>
+                </div>
+
+                <h3 class="section-title">Dark General ගේ යුද්ධය</h3>
+                <p class="story-text">ඔවුන් දෙදෙනා රණ්ඩු වන අතර, දුර කන්දක් මුදුනින් කළු දුමාරයක් නැගෙයි. Dark General සර්පයන් දහස් ගණනකගේ ජීව ශක්තිය උරාගෙන යෝධ වී ඇත.</p>
+                <div class="dialog">
+                    <p>සියලු සර්පයන් මගේ! ඔවුන්ගේ බලයෙන් මම අමරණීය වෙනවා!</p>
+                </div>
+                <p class="story-text">අහස කළු වෙයි. පොළොව දෙදරයි. Dark General ගේ යෝධ තඹ සර්ප හමුදාව ගමට පහර දීමට එයි.</p>
+                <p class="story-text">Verta, Blanca දෙස බලයි. ඉන්පසු බියෙන් වෙව්ලන Xuan දෙස බලයි.</p>
+                <div class="dialog">
+                    <p>අක්කේ... අපිට සටන් කරන්න වෙනවා. ඔබ මාත් එක්ක එකතු වෙනවා ද?</p>
+                </div>
+                <p class="story-text">Blanca, Xuan ගේ අත අල්ලා ගනියි. ඉන්පසු Verta ගේ අත අල්ලයි.</p>
+                <div class="dialog">
+                    <p>ඔව්. අපි තුන්දෙනාම එකතු වෙලා සටන් කරනවා.</p>
+                </div>
+                <p class="story-text">සුදු සර්පයා, හරිත සර්පයා සහ මනුෂ්‍ය කොල්ලා එක් වෙති. මහා යුද්ධය ඇරඹීමට ආසන්න ය.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 7 -->
+        <section class="chapter" id="ch7">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">7</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 7: මහා යුද්ධය සහ අවසන් කැපකිරීම</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    අහස සම්පූර්ණයෙන්ම කළු වී ඇත. හිරු නැති වී ඇත. Dark General යෝධයෙකු වී ඇත. ඔහුගේ ශරීරය වටා සර්පයන් දහස් ගණනකගේ කෑගැසීම් ඇසේ. ඔහුගේ පපුවේ විශාල තඹ සර්ප ලකුණක් දිලිසෙයි. ඔහු පිටුපසින් යෝධ තඹ සර්ප හමුදාවක්. බිම හාරමින්, ගස් කඩා දමමින් ගමට කඩාගෙන එති.
+                </div>
+
+                <h3 class="section-title">සටන ඇරඹීම</h3>
+                <p class="story-text">Dark General සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>පුංචි සර්ප කෙල්ලෝ දෙන්නෙක් මාව නවත්තන්න ද? ඔයාලා දෙන්නගෙම බලය මට ඕන!</p>
+                </div>
+                <p class="story-text">ඔහු අත දිගු කරයි. තඹ සර්ප හමුදාව "හීස්ස්ස්" ගා Blanca, Verta දෙදෙනා දෙසට කඩාගෙන එයි.</p>
+                <p class="story-text">Verta කෑගසයි:</p>
+                <div class="dialog">
+                    <p>අක්කේ!</p>
+                </div>
+                <p class="story-text">දෙදෙනා දෑත් ඔසවති. Blanca ගෙන් සුදු පැහැති, Verta ගෙන් කොළ පැහැති මායා ආලෝක දෙකක් විහිදී විශාල සර්පයන් දෙදෙනෙකු බවට පත් වෙයි. සුදු සර්පයා සහ හරිත සර්පයා තඹ සර්ප හමුදාව සමඟ ගැටෙති. පොළොව දෙදරයි. ගස් මුලින් උගුලා යයි. අහසේ අකුණු ගසයි.</p>
+
+                <h3 class="section-title">Xuan ගේ කැපකිරීම</h3>
+                <p class="story-text">Dark General, Blanca දෙසට අවසන් බලවත් මායා ප්‍රහාරයක් එල්ල කරයි. කළු අකුණක් වැනි යමක්. Blanca ට ඉන් බේරීමට නොහැක.</p>
+                <p class="story-text">ඒ මොහොතේ Xuan "Blancaaa!" ගා කෑගසමින් Blanca ඉදිරියට පනියි. Dark General ගේ මායා ප්‍රහාරය Xuan ගේ පපුවට වදින්නට යන විට, Xuan තම බට සැරයටිය පපුවට තද කර ගනියි. එක්වරම බට සැරයටිය පුපුරා ගොස් Xuan ගේ ජීව ශක්තියෙන් සැදුණු කොළ පැහැති මායා කඩුවක් මැවෙයි. Xuan ගේ සිරුර සෙමෙන් දිලිසෙයි. ඔහුගේ මුළු ජීවිතයම ඒ කඩුවට යයි.</p>
+                <p class="story-text">Xuan අමාරුවෙන් සිනාසී කඩුව Blanca ට දෙයි.</p>
+                <div class="dialog">
+                    <p>Blanca... මගේ ජීවිතේ වටිනම දේ ඔබ... මේකෙන්... ඔහුව නවත්තන්න...</p>
+                </div>
+
+                <h3 class="section-title">අවසන් පහර</h3>
+                <p class="story-text">Blanca කෑගසයි:</p>
+                <div class="dialog">
+                    <p>Xuaaan!</p>
+                </div>
+                <p class="story-text">ඇගේ දෑසින් කඳුළු ගලා යයි. එහෙත් ඇය Xuan දුන් කොළ පැහැති ජීව කඩුව අතට ගනියි. Verta, අක්කාගේ අත අල්ලා ගනියි.</p>
+                <div class="dialog">
+                    <p>අක්කේ, එකට!</p>
+                </div>
+                <p class="story-text">සහෝදරියෝ දෙදෙනා එක් වී, Xuan ගේ ජීව ශක්තියෙන් සැදුණු කඩුවෙන් Dark General ගේ පපුවේ තිබූ තඹ සර්ප ලකුණට අනිති.</p>
+                <div class="dialog">
+                    <p>ආහ්!!</p>
+                </div>
+                <p class="story-text">Dark General කෑගසයි. ඔහුගේ සිරුර පුපුරා ගොස් අහසට කළු දුමාරයක් වෙයි. ඔහු උරාගෙන සිටි සර්පයන් දහස් ගණනකගේ ආත්ම නිදහස් වී අහසට නැගෙයි.</p>
+
+                <h3 class="section-title">Xuan ගේ අවසානය</h3>
+                <p class="story-text">යුද්ධය නිම වී ඇත. සෑම තැනම නිහැඬියාවකි. Blanca, Xuan ව ඔඩොක්කුවේ තබාගෙන බිම වාඩි වී සිටියි. Xuan ගේ සිරුර සීතල වී ඇත. ඔහුගේ හුස්ම සෙමෙන් ගලා යයි.</p>
+                <p class="story-text">Xuan, Blanca ගේ මුහුණ අතගා සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>Blanca... මට... තව අවුරුදු පන්සීයක්... ඔබත් එක්ක ඉන්න තිබ්බා නම්...</p>
+                </div>
+                <p class="story-text">Blanca ගේ කඳුළු Xuan ගේ මුහුණ මත වැටෙයි.</p>
+                <div class="dialog">
+                    <p>Xuan... යන්න එපා... මාව දාලා යන්න එපා...</p>
+                </div>
+                <p class="story-text">Xuan අවසන් වරට සිනාසී දෑස් පියා ගනියි.</p>
+                <div class="dialog">
+                    <p>මම... ආදරෙයි...</p>
+                </div>
+
+                <h3 class="section-title">පොරොන්දුව</h3>
+                <p class="story-text">Blanca, Xuan ගේ මෘත ශරීරය තුරුළු කරගෙන අහස දෙස බලා කෑගසයි. කඳු හෙල්ලෙන තරමේ හඬකින්.</p>
+                <div class="dialog">
+                    <p>Xuaaaaaaan!!</p>
+                </div>
+                <p class="story-text">Verta අක්කා අසල දණ ගසාගෙන හඬයි. Dudou පැමිණ Xuan ගේ මුහුණ ලෙවකා කෙඳිරිගායි.</p>
+                <p class="story-text">Blanca, Xuan ගේ නළල සිඹ පොරොන්දු වෙයි.</p>
+                <div class="dialog">
+                    <p>Xuan... මම අවුරුදු පන්සීයක් බලාගෙන ඉන්නවා. ඔබ නැවත උපදින තුරු මම මේ පොළොවේ ඉන්නවා. ඊළඟ ජීවිතයේ දී අපි නැවත හමුවෙමු. ඒක මගේ පොරොන්දුවක්.</p>
+                </div>
+                <p class="story-text">වෛරයෙන් ආරම්භ වූ කතාව, ලෝකයේ ලස්සනම ආදර කතාව බවට පත් වී, ලොකුම කැපකිරීමකින් මේ මොහොතේ නතර වෙයි. අවුරුදු පන්සීයක බලා සිටීමේ පොරොන්දුවක් සමඟ.</p>
+            </div>
+        </section>
+
+        <div class="divider">🐍</div>
+
+        <!-- Chapter 8 -->
+        <section class="chapter" id="ch8">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">8</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 8: බටහිර විල උඩ පුනර්භවයේ හමුව</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    අවුරුදු පන්සීයකට පසුව. වසන්ත සමය. Hangzhou නගරය, බටහිර විල. විල වටා සකුරා මල් පිපී ඇත. රෝස පැහැති පෙති සුළඟට පාවී ජලය මත තැවරී ඇත. ඈතින් Leifeng Pagoda හි සෙවනැල්ල දිස් වෙයි. විල මැදින් ගල් පාලමක් - Broken Bridge. අහස මීදුමෙන් බොඳ වී ඇත.
+                </div>
+
+                <h3 class="section-title">Blanca ගේ බලා සිටීම</h3>
+                <p class="story-text">පාලම මත සුදු සේද වස්ත්‍රයක් ඇඳි තරුණියක් සිටියි. අවුරුදු පන්සීයක් ගත වී ඇතත් ඇය තවමත් රූමත් ය. එහෙත් දෑස් තුළ ඇත්තේ ගැඹුරු දුකක්, බලාපොරොත්තුවක්. ඇය Blanca ය. ඇය සෑම වසන්තයකම මේ පාලමට පැමිණෙයි. Xuan ව සොයාගෙන.</p>
+                <div class="dialog">
+                    <p>මේ වසන්තයටවත් ඔහු එයි ද?</p>
+                </div>
+                <p class="story-text">ඇය සිතයි.</p>
+
+                <p class="story-text">Verta ඇය අසලින් සිටියි. කොළ පැහැති වස්ත්‍රයක් ඇඳ ඇත.</p>
+                <div class="dialog">
+                    <p>අක්කේ, අවුරුදු පන්සීයක් ගෙවී ගියා. තාම ඔහු ආවේ නැහැ. අපි යමු ද?</p>
+                </div>
+                <p class="story-text">Blanca හිස වනයි.</p>
+                <div class="dialog">
+                    <p>නැහැ Verta. ඔහු එනවා. Xuan පොරොන්දු වුණා. ආත්මය කොහේ හිටියත් ඔහු මාව සොයාගෙන එනවා.</p>
+                </div>
+
+                <h3 class="section-title">වැස්ස සහ කුඩය</h3>
+                <p class="story-text">එක්වරම අහස කළු කරගෙන වැස්සක් කඩා හැලෙයි. සකුරා මල් පෙති වැස්සට තෙමී බිම වැටෙයි. මිනිස්සු කුඩ අල්ලාගෙන දුවති. Blanca පමණක් පාලම මැද වැස්සට තෙමී තෙමී සිටගෙන සිටියි.</p>
+                <p class="story-text">ඒ වන විට, පාලමේ අනෙක් පැත්තෙන් අහිංසක, කඩවසම් තරුණයෙක් කුඩයක් අල්ලාගෙන පැමිණෙයි. සුදු පැහැති වස්ත්‍රයක් ඇඳ ඇත. අතේ බෙහෙත් මල්ලකි. ඔහු Xu Xian - Xuan ගේ පුනර්භවය. ඔහු දැන් වෛද්‍යවරයෙකි. අහිංසක දෑස්, මුහුණේ කරුණාවන්ත සිනාව. Xuan ගේ මුහුණුම ය.</p>
+                <p class="story-text">Xu Xian, වැස්සට තෙමෙන Blanca ව දකියි. ඔහුගේ පාද නතර වෙයි. සිතට අමුතු හැඟීමක් පැමිණෙයි. මීට පෙර කිසිදා නුදුටු කෙනෙකුව අවුරුදු දහසක් තිස්සේ දන්නාක් මෙනි.</p>
+
+                <h3 class="section-title">පළමු වචන</h3>
+                <p class="story-text">Xu Xian සෙමෙන් Blanca වෙත පැමිණෙයි. ඔහුගේ කුඩය Blanca ගේ හිසට අල්ලයි. වැස්ස නතර වෙයි.</p>
+                <div class="dialog">
+                    <p>නංගී... වැස්සට තෙමෙනවානේ. ලෙඩ වෙයි.</p>
+                </div>
+                <p class="story-text">ඔහුගේ කටහඬ... Xuan ගේ කටහඬම ය.</p>
+                <p class="story-text">Blanca ගැස්සී උඩ බලයි. ඇගේ දෑස් විශාල වෙයි. කඳුළු පිරී උතුරයි.</p>
+                <div class="dialog">
+                    <p>X...Xuan...?</p>
+                </div>
+                <p class="story-text">Xu Xian අන්දුන් වෙයි.</p>
+                <div class="dialog">
+                    <p>නැහැ... මගේ නම Xu Xian. අපි... මීට කලින් හමුවෙලා තියෙනවා ද?</p>
+                </div>
+
+                <p class="story-text">Blanca ට කතා කළ නොහැක. අවුරුදු පන්සීයක කඳුළු එකවර පිට වෙයි. ඇය Xu Xian ගේ අත අල්ලා ගනියි. උණුසුම්. හරියට Xuan ගේ අත වගේ. Verta දුර සිට මෙය බලා සිට සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>අන්තිමට... අක්කගේ බලාපොරොත්තුව හරි ගියා.</p>
+                </div>
+
+                <p class="story-text">Xu Xian ටත් යමක් සිදු වෙයි. මේ තරුණිය දුටු විට පපුව රිදෙයි. ආරක්ෂා කළ යුතු යැයි සිතෙයි.</p>
+                <div class="dialog">
+                    <p>නංගී, ඔබ අඬන්න එපා. මම ඉන්නවා. ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න.</p>
+                </div>
+                <p class="story-text">Blanca හඬමින් සිනාසෙයි. අවුරුදු පන්සීයකට පෙර Xuan පැවසූ වචනම ය.</p>
+                <div class="dialog">
+                    <p>ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න.</p>
+                </div>
+                <p class="story-text">කර්මය රවුමකි. ආදරය නැවත හමු වී ඇත. "Legend of the White Snake" නම් අමරණීය ආදර කතාවේ අලුත් පරිච්ඡේදය එතැනින් ඇරඹෙයි.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 9 -->
+        <section class="chapter" id="ch9">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">9</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 9: සර්ප බිරිඳ සහ වෛද්‍ය සැමියා</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    Hangzhou නගරයේ ජනාකීර්ණ වීදියක්. "Baohetang" යනුවෙන් ලියූ ලෑලි පුවරුවක්. කුඩා ලී නිවසක බෙහෙත් ශාලාවක්. ඇතුළත බෙහෙත් බෝතල් සිය ගණනක්. වියළි ඖෂධ පැළෑටි එල්ලා ඇත. වාතයේ හර්බල් සුවඳක්. කවුන්ටරය පිටුපසින් Xu Xian මිනිසුන්ට බෙහෙත් බෙදයි. මුහුණේ සැමදා පවතින අහිංසක, කරුණාවන්ත සිනාව. "අම්මේ මේ බෙහෙත් වෙලාවට බොන්න. ඉක්මනින් සුව වෙයි."
+                </div>
+
+                <h3 class="section-title">සතුටින් ජීවිතය</h3>
+                <p class="story-text">ඒ අසලින් Blanca සුදු සේද වස්ත්‍රයක් ඇඳ, කේශ කලාපය ගොතා, බෙහෙත් අඹරයි. අවුරුදු පන්සීයක් පැරණි සර්ප දේවතාවිය දැන් ගෘහණියක් වී ඇත. එහෙත් දෑස් තුළ තිබූ බලය, ලස්සන තවමත් එසේම ය. ඇය සැමියා දෙස බලා හොරෙන් සිනාසෙයි.</p>
+                <p class="story-text">පාන්දර සිට රාත්‍රිය දක්වා දෙදෙනා මිනිසුන්ට උදව් කරති. දුප්පත් මිනිසුන්ගෙන් මුදල් නොගනිති.</p>
+                <div class="dialog">
+                    <p>අපි සල්ලි වලට නෙවෙයි බෙහෙත් දෙන්නේ, පින් වලට</p>
+                </div>
+                <p class="story-text">යැයි Xu Xian පවසයි.</p>
+                <p class="story-text">Blanca, Xu Xian ගේ නළලේ දාඩිය පිස දමයි.</p>
+                <div class="dialog">
+                    <p>මහන්සි ද මහත්තයෝ?</p>
+                </div>
+                <p class="story-text">Xu Xian, Blanca ගේ අත අල්ලාගෙන පවසයි:</p>
+                <div class="dialog">
+                    <p>ඔබ ළඟ ඉන්නකොට මට මහන්සි නැහැ නෝනා.</p>
+                </div>
+                <p class="story-text">Verta ද ඔවුන් සමඟම සිටියි. ඇය නිවසේ වැඩ කරමින් කඩයට එන තරුණයන්ට විහිළු කරයි.</p>
+
+                <h3 class="section-title">ගැබ් ගැනීම</h3>
+                <p class="story-text">දිනක් උදෑසන, Blanca ට එක්වරම ඔක්කාරය පැමිණෙයි. Xu Xian බියෙන් දුවගෙන එයි.</p>
+                <div class="dialog">
+                    <p>Blanca! මොකද වුණේ? ලෙඩ ද?</p>
+                </div>
+                <p class="story-text">Verta, Blanca ගේ මුහුණ දෙස බලා එක්වරම සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>අක්කේ! ලෙඩක් නෙවෙයි... ශුභ ආරංචියක්!</p>
+                </div>
+                <p class="story-text">Blanca ගේ දෑස් විශාල වෙයි. ඇය උදරයට අත තබයි.</p>
+                <div class="dialog">
+                    <p>Verta... මම...?</p>
+                </div>
+                <p class="story-text">Xu Xian ට තේරෙයි. ඔහුගේ මුහුණ සතුටින් දිලිසෙයි.</p>
+                <div class="dialog">
+                    <p>Blanca! අපිට... අපිට දරුවෙක් හම්බෙන්න ද යන්නේ?</p>
+                </div>
+                <p class="story-text">Blanca හඬමින් හිස වනයි. Xu Xian, Blanca ව පරිස්සමින් තුරුළු කර ගනියි.</p>
+                <div class="dialog">
+                    <p>මගේ දෙවියනේ... ස්තූතියි... ස්තූතියි...</p>
+                </div>
+
+                <h3 class="section-title">Fahai ගේ සෙවනැල්ල</h3>
+                <p class="story-text">එහෙත් මේ සතුට වැඩි කල් පවතින්නේ නැත. දුරින් පිහිටි Jinshan පන්සලේ, Fahai හාමුදුරුවෝ භාවනා කරමින් සිටියි. උන්වහන්සේගේ නළල රැලි ගැහෙයි.</p>
+                <div class="dialog">
+                    <p>හ්ම්... මනුෂ්‍ය ලෝකයේ යක්ෂ ශක්තියක්... සර්පයෙක්... මනුස්සයෙක් සමඟ එකට ඉන්නවා...</p>
+                </div>
+                <p class="story-text">උන්වහන්සේගේ අතේ ඇති යාඥා මාලය වේගයෙන් කරකවයි.</p>
+                <div class="dialog">
+                    <p>මෙය ස්වභාවධර්මයට විරුද්ධයි. මහා විනාශයක් වනු ඇත. මා මෙය නැවැත්විය යුතුයි.</p>
+                </div>
+                <p class="story-text">Fahai සෙමෙන් දෑස් විවර කරයි. උන්වහන්සේ Hangzhou දෙසට බලා පවසයි:</p>
+                <div class="dialog">
+                    <p>ධර්මය රැකීමට මා යා යුතුයි.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 10 -->
+        <section class="chapter" id="ch10">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">10</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 10: Fahai හාමුදුරුවන්ගේ මැදිහත්වීම</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    Jinshan පන්සල. කඳු මුදුනක පිහිටි විශාල, පැරණි පන්සලක්. සීනු හඬ දෝංකාර දෙයි. සඳ එළියෙන් පන්සලේ සෙවනැල්ල විල මත වැටී ඇත. ඇතුළත රන් පැහැති බුද්ධ ප්‍රතිමා දහස් ගණනක්. ධූප සුවඳ. මැද ශාලාවේ Fahai හාමුදුරුවෝ භාවනාවේ යෙදී සිටියි. වයස්ගත ය, එහෙත් ශරීරය ශක්තිමත් ය. රැවුල දිගු ය, සුදු ය. කහ සිවුරක් ඇඳ ඇත. අතේ විශාල යාඥා මාලයකි. දෑස් පියාගෙන සිටිය ද මුහුණේ ඇත්තේ දැඩි කෝපයක්, ධර්මය ගැන තද විශ්වාසයක්.
+                </div>
+
+                <h3 class="section-title">Xu Xian පන්සලට ගෙන්වීම</h3>
+                <p class="story-text">Fahai සිය ගෝලයෙකුට පවසයි:</p>
+                <div class="dialog">
+                    <p>Hangzhou හි සිටින Xu Xian නම් වෛද්‍යවරයා වහා මෙහි කැඳවාගෙන එන්න. ඔහු විශාල අනතුරක සිටී.</p>
+                </div>
+                <p class="story-text">දිනක් Baohetang බෙහෙත් ශාලාවට පන්සලේ හාමුදුරුවරු දෙදෙනෙක් පැමිණෙති.</p>
+                <div class="dialog">
+                    <p>Xu Xian වෛද්‍යතුමනි, Fahai ලොකු හාමුදුරුවෝ ඔබට පන්සලට එන ලෙස ආරාධනා කළා.</p>
+                </div>
+                <p class="story-text">Xu Xian බිය වෙයි.</p>
+                <div class="dialog">
+                    <p>මම... මම වරදක් කළා ද?</p>
+                </div>
+                <p class="story-text">Blanca, Xu Xian ගේ අත අල්ලා ගනියි. ඇගේ දෑස්වල බියකි.</p>
+                <div class="dialog">
+                    <p>මහත්තයෝ යන්න එපා. මගේ හිත හොඳ නැහැ.</p>
+                </div>
+                <p class="story-text">Xu Xian සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>හාමුදුරුවෝ කවදාවත් නරකක් කරන්නේ නැහැ Blanca. මම ඉක්මනින් එන්නම්.</p>
+                </div>
+                <p class="story-text">Verta කෝපයෙන් බලා සිටියි.</p>
+
+                <h3 class="section-title">හිර කිරීම</h3>
+                <p class="story-text">Xu Xian පන්සලට ගිය පසු Fahai ඔහු දෙස බලා සිටියි.</p>
+                <div class="dialog">
+                    <p>පුතා, ඔබේ බිරිඳ මනුස්සයෙක් නෙවෙයි. ඇය අවුරුදු දහසක් පැරණි සුදු සර්ප දේවතාවියක්. යක්ෂණියක්.</p>
+                </div>
+                <p class="story-text">Xu Xian ගැස්සෙයි.</p>
+                <div class="dialog">
+                    <p>හාමුදුරුවනේ... ඒ... ඒ කොහොම ද...?</p>
+                </div>
+
+                <p class="story-text">Fahai කෝපයෙන් කෑගසයි:</p>
+                <div class="dialog">
+                    <p>සතෙක් සහ මනුස්සයෙක් එකට ඉන්න එක ස්වභාවධර්මයේ නීතියට විරුද්ධයි! මෙයින් මහා විනාශයක් වෙයි! ඔබේ දරුවාත් යකෙක් වෙයි! ඔබේ බිරිඳව අතහැර දමන්න! මේ පන්සලේ නැවතී බණ භාවනා කර ඔබේ කර්මය හදාගන්න!</p>
+                </div>
+                <p class="story-text">Xu Xian හඬයි.</p>
+                <div class="dialog">
+                    <p>බැහැ හාමුදුරුවනේ... මම ඇයට ආදරෙයි... ඇය ගැබ්බර... මට ඇයව දාලා යන්න බැහැ...</p>
+                </div>
+                <p class="story-text">Fahai අත දිගු කරයි. එක්වරම පන්සලේ දොරවල් වැසෙයි. රන් පැහැති මායා දම්වැල් Xu Xian ගේ දෑත්, පාද බැඳ ගනියි.</p>
+                <div class="dialog">
+                    <p>ඔබට තේරෙන තුරු ඔබ මේ පන්සලේ සිරකරුවෙක්.</p>
+                </div>
+
+                <h3 class="section-title">Blanca ගේ පැමිණීම</h3>
+                <p class="story-text">රාත්‍රිය වන තුරුත් Xu Xian නොපැමිණි විට Blanca ට ඉවසිය නොහැක. Verta සමඟ Jinshan පන්සල වෙත යයි. පන්සල ඉදිරිපිට සිට Blanca කෑගසයි:</p>
+                <div class="dialog">
+                    <p>Xu Xian! මහත්තයෝ! කොහෙද ඉන්නේ!</p>
+                </div>
+                <p class="story-text">පන්සල උඩ සිට Fahai එළියට පැමිණෙයි.</p>
+                <div class="dialog">
+                    <p>යක්ෂණිය! ඔබේ සැමියා දැන් මගේ භාරයේ. ඔබ නැවත මේ පැත්තේ ආවොත් ඔබව විනාශ කරනවා!</p>
+                </div>
+                <p class="story-text">Blanca ගේ දෑස් රතු වෙයි.</p>
+                <div class="dialog">
+                    <p>මගේ සැමියාව දෙන්න! නැත්නම් මම මේ පන්සලම දෙකට කඩනවා!</p>
+                </div>
+                <p class="story-text">පන්සල ඉදිරිපිට Blanca සහ Fahai මුහුණට මුහුණ ලා සිටිති. ආදරය සහ ධර්මය අතර මහා සටන ඇරඹීමට ආසන්න ය.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 11 -->
+        <section class="chapter" id="ch11">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">11</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 11: Jinshan පන්සල යට කරන මහා ජලගැල්ම</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    කළු වලාකුළු. මුළු අහසම වැසී ඇත. Jinshan පන්සල පිහිටි කන්ද වටා Yangtze ගඟ ගලා බසියි. ගඟේ ජලය රළු වී, රැලි නැගෙයි. අහසේ අකුණු කෙටෙයි. පන්සලේ ගේට්ටුව ඉදිරිපිට Blanca සිටගෙන සිටියි. වැස්සට තෙමී ඇත. කේශ කලාපය අවුල් වී ඇත. එහෙත් දෑස් දෙක ගින්දරක් සේ දිලිසෙයි. ඇගේ උදරය තරමක් විශාල වී ඇත - ඇය ගැබ්බර ය. ඇය අසලින් Verta කෝපයෙන් දත් විලිස්සාගෙන සිටියි.
+                </div>
+
+                <h3 class="section-title">මහා සටන</h3>
+                <p class="story-text">Blanca දෑත් එකතු කර කෑගසයි:</p>
+                <div class="dialog">
+                    <p>Fahai! මගේ සැමියාව නිදහස් කරන්න! ඔහු මනුස්සයෙක්! ඔහුට තෝරා ගැනීමේ අයිතියක් තියෙනවා! ඔබේ ධර්මය නෙවෙයි ආදරය තමයි ලොකුම ධර්මය!</p>
+                </div>
+                <p class="story-text">Fahai සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>යක්ෂණියකට මනුස්ස ආදරය ගැන කතා කරන්න බැහැ!</p>
+                </div>
+
+                <p class="story-text">Verta ට තවත් ඉවසිය නොහැක.</p>
+                <div class="dialog">
+                    <p>අක්කේ, කතා කරලා වැඩක් නැහැ! මේ නාකි හාමුදුරුවට ගහමු!</p>
+                </div>
+                <p class="story-text">Blanca සහ Verta දෙදෙනා අහස දෙස බලා දෑත් ඔසවති. එක්වරම මුළු Yangtze ගඟම ඉහළට එසැවෙයි. ජල කන්දක් මෙනි. Blanca ගේ කටහඬ මුළු මිටියාවත පුරා ඇසේ:</p>
+                <div class="dialog">
+                    <p>මගේ සැමියාව දෙන තුරු මම නවතින්නේ නැහැ!</p>
+                </div>
+
+                <p class="story-text">Fahai සිය යෂ්ටිය පොළොවට ගසයි.</p>
+                <div class="dialog">
+                    <p>ඕම් මණි පද්මේ හූම්!</p>
+                </div>
+                <p class="story-text">එක්වරම පන්සල වටා රන් පැහැති මායා පවුරක් මැවෙයි. Blanca ගේ ජල සර්පයා Fahai ගේ රන් පවුරේ ගැටෙයි. බූම්! පොළොව දෙදරයි. ගමේ මිනිස්සු බියෙන් කෑගසති. ගඟ පිටාර ගලා නිවෙස් යට වෙයි.</p>
+                <p class="story-text">Blanca ගේ නළලින් දාඩිය ගලයි. ඇය ගැබ්බර නිසා ඇගේ බලය අඩු ය. Verta කෑගසයි:</p>
+                <div class="dialog">
+                    <p>අක්කේ! ඔබට අමාරුයි! නවත්තමු!</p>
+                </div>
+                <p class="story-text">එහෙත් Blanca අසන්නේ නැත. එක්වරම ඇගේ උදරය රිදෙන්නට වෙයි.</p>
+                <div class="dialog">
+                    <p>ආහ්!</p>
+                </div>
+                <p class="story-text">ගා ඇය දණ ගසයි. ලේ බිංදුවක් බිමට වැටෙයි. Verta බියෙන් කෑගසයි:</p>
+                <div class="dialog">
+                    <p>අක්කේ! දරුවා!</p>
+                </div>
+                <p class="story-text">ඇය Blanca ව අල්ලා ගනියි. Fahai උඩ සිට කෑගසයි:</p>
+                <div class="dialog">
+                    <p>බැලුව ද යක්ෂණිය! ධර්මය ඉස්සරහ ඔබේ බලය මොකක් ද?</p>
+                </div>
+                <p class="story-text">Blanca ට නැගිටීමට නොහැක. Verta අක්කා ව වඩාගෙන පසුපසට යයි. ආදරය පරාද වී ඇත. ධර්මය ජයගෙන ඇත.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 12 -->
+        <section class="chapter" id="ch12">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">12</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 12: Leifeng Pagoda සිරගෙය සහ විරහව</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    වැස්ස නැවතී ඇත. හිරු බැස යන වේලාව. බටහිර විල අද්දර උස් කන්දක් මත Leifeng Pagoda - පස් මහල් විශාල පැරණි දාගැබක්. ගඩොලින් නිම වූ, අඳුරු පැහැති. අවට කිසිවෙක් නැත. සුළඟට ගස් කොළ සෙලවෙන හඬ පමණක් ඇසේ. දාගැබ තුළ යකඩ දම්වැල්වල හඬක්. ඉහළම මාලයේ කුඩා කුටියක්. ජනෙල් නැත. සඳ එළිය පමණක් කුඩා සිදුරකින් පැමිණෙයි. බිම සීතල ගල්. කුටිය මැද Blanca දම්වැල්වලින් බැඳී දණ ගසාගෙන සිටියි.
+                </div>
+
+                <h3 class="section-title">සිර කිරීම</h3>
+                <p class="story-text">Fahai හාමුදුරුවෝ යෂ්ටිය අතේ තබාගෙන කුටියේ දොර අසල සිටගෙන සිටියි.</p>
+                <div class="dialog">
+                    <p>Blanca, ඔබේ බලය අතිමහත් ය. ඔබ මනුෂ්‍ය ලෝකයේ සිටියොත් තවත් විනාශ සිදු වෙයි. ඔබේ දරුවා උපදින තුරු මම ඔබව මෙහි සිර කරනවා. ඉන්පසු දරුවා මනුස්සයෙකු ලෙස හැදීමට මම Xu Xian ට භාර දෙනවා.</p>
+                </div>
+                <p class="story-text">Blanca සෙමෙන් හිස ඔසවයි.</p>
+                <div class="dialog">
+                    <p>Fahai... ඔබ ධර්මය දන්නවා ද? ආදරය කරන මවකගෙන් දරුවෙකු වෙන් කරන එක ද ඔබේ ධර්මය? පවුලක් කඩන එක ද ඔබේ බුද්ධාගම?</p>
+                </div>
+                <p class="story-text">Fahai ගේ මුහුණේ කිසිදු වෙනසක් නැත.</p>
+                <div class="dialog">
+                    <p>යක්ෂයෙකුට සහ මනුස්සයෙකුට දාව උපදින දරුවා ශාපයක්. මම ඒ ශාපය නවත්තනවා.</p>
+                </div>
+                <p class="story-text">උන්වහන්සේ දොර වසා විශාල යකඩ අගුලක් දමයි. "ඕම් මණි පද්මේ හූම්" මන්ත්‍රයෙන් දාගැබම සීල් කරයි.</p>
+
+                <h3 class="section-title">දරුවාගේ උපත</h3>
+                <p class="story-text">මාස ගණනක් ගෙවී යයි. හුදකලා දාගැබ තුළ Blanca ට වේදනාව පැමිණෙයි.</p>
+                <div class="dialog">
+                    <p>අහ්!</p>
+                </div>
+                <p class="story-text">ඇය කෑගසයි. ඇයට උදව් කිරීමට කිසිවෙක් නැත. සීතල ගල් බිම මත, දම්වැල් සමඟ, යක්ෂණිය තනිවම දරුවෙකු බිහි කරයි. දරුවාගේ හැඬුම් හඬ දාගැබ පුරා දෝංකාර දෙයි. පිරිමි ළමයෙකි.</p>
+                <p class="story-text">Blanca අමාරුවෙන් දරුවා තුරුළු කර ගනියි.</p>
+                <div class="dialog">
+                    <p>පුතේ... මගේ Xu Mengjiao... ඔබේ තාත්තාගේ නමින් තමයි ඔබව නම් කළේ...</p>
+                </div>
+                <p class="story-text">ඇය දරුවාගේ නළල සිඹියි.</p>
+                <div class="dialog">
+                    <p>ඔබේ තාත්තයි මමයි අවුරුදු පන්සීයක් බලාගෙන හිටියා ඔබ වෙනුවෙන්. ඔබ ලොකු වෙලා දොස්තර කෙනෙක් වෙන්න. අහිංසක මිනිසුන්ට උදව් කරන්න.</p>
+                </div>
+
+                <h3 class="section-title">වෙන් වීම</h3>
+                <p class="story-text">එක්වරම දොර ඇරෙයි. Fahai පැමිණෙයි.</p>
+                <div class="dialog">
+                    <p>දරුවාගේ කාලය පැමිණ ඇත.</p>
+                </div>
+                <p class="story-text">Blanca කෑගසයි:</p>
+                <div class="dialog">
+                    <p>එපා! මගේ පුතාව අල්ලන්න එපා!</p>
+                </div>
+                <p class="story-text">එහෙත් ඇයට සෙලවීමටවත් නොහැක. Fahai මන්ත්‍රයක් කියා නිදා සිටින දරුවා වඩා ගනියි.</p>
+                <div class="dialog">
+                    <p>ඔබට ඔබේ දඬුවම විඳින්න වෙනවා Blanca. මේ දාගැබ කඩා වැටෙන තුරු, නැතහොත් ඔබේ පුතා උසස් රාජ්‍ය නිලධාරියෙක් වී ඔබව නිදහස් කරන තුරු ඔබ මෙහි සිර වී සිටිනවා.</p>
+                </div>
+                <p class="story-text">Blanca ගේ කඳුළු දරුවාගේ මුහුණ මත වැටෙයි.</p>
+                <div class="dialog">
+                    <p>Xu Mengjiao... අම්මා එනකන් බලාගෙන ඉන්න පුතේ...</p>
+                </div>
+                <p class="story-text">Fahai දරුවා රැගෙන යයි. යකඩ දොර දොම් ගා වැසෙයි. Leifeng Pagoda තුළ Blanca ගේ විලාපය පමණක් දෝංකාර දෙයි. මවක්, බිරිඳක්, අවුරුදු දහසක සර්ප දේවතාවියක් අද අසරණම අසරණ ලෙස සිරගෙදර ය. බලා සිටියි. අවුරුදු විස්සක, තිහක බලා සිටීමේ පොරොන්දුවක් සමඟ.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 13 -->
+        <section class="chapter" id="ch13">
+            <div class="chapter-card">
+                <div class="chapter-header">
+                    <div class="chapter-number">13</div>
+                    <h2 class="chapter-title">පරිච්ඡේදය 13: Xu Mengjiao ගේ උත්ථානය සහ Leifeng Pagoda කඩා වැටීම</h2>
+                </div>
+                
+                <div class="visualize">
+                    <div class="visualize-label">Visualize</div>
+                    අවුරුදු විස්සකට පසුව. වසන්තය. Hangzhou නගරය උත්සවශ්‍රීයෙන් සැරසී ඇත. රතු කොඩි, බෙර හඬ. රාජකීය පෙරහැරක් නගරය මැදින් ගමන් කරයි. අශ්වයෙකු පිට නැගී කඩවසම්, උගත් තරුණයෙක්. හිස මත රාජකීය නිලධාරියෙකුගේ තොප්පිය. වස්ත්‍රයේ රන් නූල්. ඔහු Xu Mengjiao - Blanca සහ Xu Xian ගේ පුත්‍රයා. රාජ්‍ය විභාගයෙන් මුළු චීනයෙන්ම පළමු ස්ථානය ලබා ඇත. දැන් "Zhuangyuan" - අධිරාජ්‍යයාගේ අලුත් උපදේශක. පෙරහැර පසුපසින් මහලු වූ Xu Xian හඬමින් ගමන් කරයි. "මගේ පුතා... මගේ Blanca ගේ පුතා..."
+                </div>
+
+                <h3 class="section-title">සත්‍යය දැනගැනීම</h3>
+                <p class="story-text">Xu Mengjiao රජ මාලිගාවේ සිටිය දී වයසක ඇමතිවරයෙක් ඔහුට කතාව පවසයි.</p>
+                <div class="dialog">
+                    <p>පුතා, ඔබ දන්නවා ද ඔබේ අම්මා කවුද කියලා? ඔබේ තාත්තා ඔබට කියලා නැද්ද?</p>
+                </div>
+                <p class="story-text">Xu Mengjiao ගැස්සෙයි.</p>
+                <div class="dialog">
+                    <p>මගේ තාත්තා කිව්වේ අම්මා ලෙඩ වෙලා නැති වුණා කියලා...</p>
+                </div>
+                <p class="story-text">ඇමතිවරයා හිස වනයි.</p>
+                <div class="dialog">
+                    <p>නැහැ පුතා. ඔබේ අම්මා සුදු සර්ප දේවතාවියක්. Fahai හාමුදුරුවෝ ඇයව Leifeng Pagoda හි සිර කළා. අවුරුදු විස්සක් තිස්සේ.</p>
+                </div>
+                <p class="story-text">Xu Mengjiao ගේ අතේ තිබූ තේ කෝප්පය බිම වැටී කුඩු වෙයි.</p>
+                <div class="dialog">
+                    <p>මොකක්? මගේ අම්මා... ජීවතුන් අතර? සිර වෙලා?</p>
+                </div>
+                <p class="story-text">ඔහු එක්වරම නැගිටියි.</p>
+                <div class="dialog">
+                    <p>මට මගේ අම්මව ඕන!</p>
+                </div>
+
+                <h3 class="section-title">දාගැබට කඩා වැදීම</h3>
+                <p class="story-text">Xu Mengjiao, Xu Xian සමඟ Leifeng Pagoda වෙත දුවගෙන එයි. Verta ද එතැනට පැමිණ ඇත. ඇය අවුරුදු විස්සක් තිස්සේ දාගැබ වටා කැරකෙමින් සිටියා ය. දාගැබ ඉදිරිපිට Fahai හාමුදුරුවෝ යෂ්ටිය අතින් ගෙන සිටගෙන සිටියි. වයසට ගොස් ඇත, එහෙත් තවමත් ශක්තිමත් ය.</p>
+                <div class="dialog">
+                    <p>නවතින්න! මේ යක්ෂණියව නිදහස් කරන්න බැහැ! නීතිය නීතියමයි!</p>
+                </div>
+
+                <p class="story-text">Xu Mengjiao, Fahai ඉදිරියේ දණ ගසයි.</p>
+                <div class="dialog">
+                    <p>හාමුදුරුවනේ, මම අධිරාජ්‍යයාගේ Zhuangyuan. මම ධර්මය දන්නවා. එහෙත් ධර්මයට වඩා ලොකු ධර්මයක් තියෙනවා - ඒ තමයි මව් සෙනෙහස. මගේ අම්මා මොන ජාතියක වුණත් ඇය මගේ අම්මා. ඇය වරදක් කරලා නැහැ. ඇය ආදරය කළා විතරයි. අහිංසක මිනිසුන්ට උදව් කළා විතරයි. ඇයව නිදහස් කරන්න!</p>
+                </div>
+                <p class="story-text">Fahai ගේ දෑස් විශාල වෙයි.</p>
+                <div class="dialog">
+                    <p>ඔබ... ඔබ රාජ්‍ය නිලධාරියෙක්... ඔබේ වචනයට බලයක් තියෙනවා...</p>
+                </div>
+
+                <h3 class="section-title">Leifeng Pagoda කඩා වැටීම</h3>
+                <p class="story-text">Xu Mengjiao නැගිට දාගැබේ යකඩ දොරට අත තබයි.</p>
+                <div class="dialog">
+                    <p>අම්මේ! මම ආවා! ඔබේ පුතා Xu Mengjiao!</p>
+                </div>
+                <p class="story-text">එක්වරම අහස ගිගුරුම් දෙයි. දාගැබ සෙලවෙයි. Blanca ඇතුළතින් කෑගසයි:</p>
+                <div class="dialog">
+                    <p>පුතේ!</p>
+                </div>
+                <p class="story-text">"බූම්! ක්‍රාක්!" යන හඬින් අවුරුදු විස්සක් පුරාවට සිර කරගෙන සිටි Leifeng Pagoda හි ගඩොල් එකින් එක කැඩී බිමට කඩා වැටෙයි. රන් පැහැති ආලෝකයක් දාගැබ තුළින් විහිදෙයි. Fahai ගේ මන්ත්‍රය බිඳ වැටෙයි. දූවිලි වලාකුළු මැදින් Blanca එළියට පැමිණෙයි. දම්වැල් කැඩී ගොසිනි. කේශ කලාපය සුළඟට ලෙල දෙයි. අවුරුදු විස්සකට පසුව හිරු එළිය ඇගේ මුහුණ මත වැටෙයි. ඇය හඬයි.</p>
+
+                <h3 class="section-title">පවුලේ යළි එකතුවීම</h3>
+                <p class="story-text">Xu Xian දුවගෙන ඇවිත් Blanca ව බදා ගනියි.</p>
+                <div class="dialog">
+                    <p>Blanca! මගේ Blanca! මට සමාවෙන්න... මට ඔබව බේරාගන්න බැරිවුණා...</p>
+                </div>
+                <p class="story-text">Blanca, Xu Xian ගේ මුහුණ අතගායි.</p>
+                <div class="dialog">
+                    <p>Xuan... මගේ Xuan... ඔබ ආවා...</p>
+                </div>
+                <p class="story-text">Xu Mengjiao ඇවිත් දෙදෙනාවම බදා ගනියි.</p>
+                <div class="dialog">
+                    <p>අම්මේ... තාත්තේ...</p>
+                </div>
+                <p class="story-text">Verta පැත්තකට වී හඬමින් සිනාසෙයි.</p>
+                <div class="dialog">
+                    <p>අන්තිමට... අන්තිමට අපේ පවුල එකතු වුණා.</p>
+                </div>
+
+                <p class="story-text">Fahai නිහඬව මේ සියල්ල බලා සිටියි. උන්වහන්සේගේ යෂ්ටිය බිමට වැටෙයි. දෑස්වලට කඳුළු පිරේ.</p>
+                <div class="dialog">
+                    <p>ම... මම වරදවා තේරුම් ගත්තා... ආදරය ඉස්සරහ ධර්මය පරාද... මම බොහෝ කල් වැරදි මාර්ගයක ගියෙමි.</p>
+                </div>
+
+                <p class="story-text">කඩා වැටුණු Leifeng Pagoda හි ගඩොල් ගොඩ මත Blanca, Xu Xian, Xu Mengjiao තිදෙනා තුරුළු වී සිටිති. බටහිර විලෙන් හමා එන සුළඟට Blanca ගේ කේශ කලාපය ලෙල දෙයි. Verta ඔවුන් අසලින් සිනාසෙයි.</p>
+                <p class="story-text">අවුරුදු පන්සිය විස්සක වෛරය, විරහව, කඳුළු වලින් ආරම්භ වූ කතාව, අද ආදරයෙන්, සමාව දීමෙන්, පවුලේ එකතු වීමෙන් අවසන් වෙයි. සුදු සර්පයාගේ පුරාවෘත්තය සදාකාලික ආදර කතාවක් බවට පත් වී ඉතිහාසයට එකතු වෙයි.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-hearts">❤️ 🐍 ❤️</div>
+        <p class="footer-message">· සැබෑ ආදරය කිසිදා මැකෙන්නේ නැත ·</p>
+        <p class="footer-sub">එය ජීවිතෙන් ජීවිතයට, යුගයෙන් යුගයට, සදාකාලිකව ලියැවෙයි.</p>
+        <p class="footer-sub" style="margin-top: 1rem; font-size: 1.1rem;">I love you sudu manika ❤️🖤</p>
+        <p class="footer-sub">forever with you ❤️🖤</p>
+        
+        <p class="footer-credit">
+            — මේ කතාව ඔබ වෙනුවෙන් —<br><br>
+            Created with ❤️ by K. Sithara · සුදු මැණිකා වෙනුවෙන්
+        </p>
+        <p class="footer-tagline">
+            සුදු සර්පයාගේ පුරාවෘත්තය · Legend of the White Snake · Bai She Zhuan · 白蛇传
+        </p>
+        <p class="footer-tagline" style="margin-top: 0.5rem; font-size: 0.8rem;">
+            අවුරුදු 1000කට වඩා පැරණි චීන ජනප්‍රවාදයක් ඇසුරින් · සිංහල පරිවර්තනය
+        </p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 15 : 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            observer.observe(chapter);
+        });
+
+        // Sticky navigation and back to top button
+        const stickyNav = document.getElementById('stickyNav');
+        const backToTop = document.getElementById('backToTop');
+        const heroSection = document.getElementById('hero');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+            // Show sticky nav when scrolling past hero
+            if (scrollY > heroBottom - 100) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+
+            // Show back to top button
+            if (scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Update active chapter in sticky nav
+            const chapters = document.querySelectorAll('.chapter');
+            const navLinks = stickyNav.querySelectorAll('a');
+            
+            chapters.forEach((chapter, index) => {
+                const rect = chapter.getBoundingClientRect();
+                if (rect.top <= 200 && rect.bottom >= 200) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const chapterNum = index + 1;
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === '#ch' + chapterNum) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrollY < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
+                heroContent.style.opacity = 1 - (scrollY / window.innerHeight) * 0.8;
+            }
+        });
+    </script>
+</body>
+</html>
+
