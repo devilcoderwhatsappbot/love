@@ -51,6 +51,122 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, var(--bg3) 0%, var(--bg) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-heart {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            animation: loaderHeartBeat 1s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+        .loader-heart::before,
+        .loader-heart::after {
+            content: '';
+            width: 32px;
+            height: 50px;
+            position: absolute;
+            left: 30px;
+            top: 0;
+            background: linear-gradient(135deg, var(--red-bright), var(--red));
+            border-radius: 32px 32px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            box-shadow: 0 0 30px var(--red-glow);
+        }
+        .loader-heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes loaderHeartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        .loader-text {
+            color: var(--gold);
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            animation: pulseText 1.5s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Reading Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(107, 15, 26, 0.3);
+            z-index: 10000;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), var(--red-bright), var(--gold));
+            width: 0%;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px var(--red-glow);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(200, 16, 46, 0.2);
+            border: 2px solid var(--red);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: var(--red-bright);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            background: rgba(200, 16, 46, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px var(--red-glow);
+        }
+        .scroll-top:active {
+            transform: translateY(-2px);
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -199,6 +315,17 @@
             border-bottom: 2px solid var(--red-dark);
             position: relative;
             overflow: hidden;
+            animation: headerFadeIn 1.2s ease-out;
+        }
+        @keyframes headerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         header::before {
             content: '';
@@ -225,6 +352,11 @@
             padding: 0 22px;
             letter-spacing: 8px;
             z-index: 10;
+            animation: iconsBounce 2s ease-in-out infinite;
+        }
+        @keyframes iconsBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
         }
         h1 {
             font-size: 3.5em;
@@ -351,7 +483,29 @@
             overflow: hidden;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: chapterFadeIn 0.8s ease forwards;
         }
+        @keyframes chapterFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .chapter:nth-child(1) { animation-delay: 0.1s; }
+        .chapter:nth-child(2) { animation-delay: 0.2s; }
+        .chapter:nth-child(3) { animation-delay: 0.3s; }
+        .chapter:nth-child(4) { animation-delay: 0.4s; }
+        .chapter:nth-child(5) { animation-delay: 0.5s; }
+        .chapter:nth-child(6) { animation-delay: 0.6s; }
+        .chapter:nth-child(7) { animation-delay: 0.7s; }
+        .chapter:nth-child(8) { animation-delay: 0.8s; }
+        .chapter:nth-child(9) { animation-delay: 0.9s; }
+        .chapter:nth-child(10) { animation-delay: 1.0s; }
+        .chapter:nth-child(11) { animation-delay: 1.1s; }
+        .chapter:nth-child(12) { animation-delay: 1.2s; }
+        .chapter:nth-child(13) { animation-delay: 1.3s; }
         .chapter::before {
             content: '';
             position: absolute;
@@ -470,6 +624,17 @@
             background: linear-gradient(0deg, var(--bg3) 0%, rgba(5, 5, 5, 0.5) 100%);
             position: relative;
             overflow: hidden;
+            animation: footerFadeIn 1.5s ease-out;
+        }
+        @keyframes footerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         footer::before {
             content: '';
@@ -699,6 +864,21 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-heart"></div>
+            <p class="loader-text">සුදු සර්පයාගේ පුරාවෘත්තය...</p>
+        </div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTopBtn" title="ඉහළට යන්න">⬆</div>
 
     <div class="floating-hearts" id="floatingHearts"></div>
 
@@ -981,6 +1161,65 @@
     </footer>
 
     <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 1500);
+        });
+
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progressBar');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Chapter highlight on scroll
+        const chapters = document.querySelectorAll('.chapter');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            chapters.forEach(chapter => {
+                const chapterTop = chapter.offsetTop - 150;
+                if (window.pageYOffset >= chapterTop) {
+                    current = chapter.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         const floatingHeartsContainer = document.getElementById('floatingHearts');
         const heartBtn = document.getElementById('heartBtn');
         const TOTAL_HEARTS = 25;
