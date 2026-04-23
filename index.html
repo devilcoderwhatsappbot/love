@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="සුදු සර්පයාගේ පුරාවෘත්තය - Legend of the White Snake. අවුරුදු දහසක ආදරය, විරහව, පොරොන්දුව සහ සදාකාලික යළි හමුවීම">
-    <meta name="theme-color" content="#c8102e">
+    <meta name="theme-color" content="#c41e3a">
     <title>සුදු සර්පයාගේ පුරාවෘත්තය | සුදු මැණිකා ❤️🖤</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --bg2: #0f0505;
-            --bg3: #1a0808;
-            --red: #c8102e;
-            --red-bright: #e8233d;
-            --red-dark: #6b0f1a;
-            --red-glow: rgba(200, 16, 46, 0.7);
-            --text: #e6dcdc;
-            --text-bright: #fff0f0;
-            --text-dim: #b8a0a0;
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --bg-card-hover: #141414;
+            --red-primary: #c41e3a;
+            --red-light: #ff3355;
+            --red-glow: rgba(196, 30, 58, 0.6);
+            --red-soft: #ff6b7a;
+            --red-dark: #8b1a2e;
+            --red-deep: #4a0d1a;
+            --red-rose: #e63956;
+            --text-primary: #e8e8e8;
+            --text-secondary: #999999;
+            --text-white: #ffffff;
+            --text-dim: #777777;
             --gold: #c9a84c;
             --gold-light: #e0c56e;
-            --card-bg: rgba(12, 6, 6, 0.88);
-            --card-border: rgba(200, 16, 46, 0.45);
-            --card-glow: rgba(200, 16, 46, 0.2);
+            --border-glow: rgba(196, 30, 58, 0.4);
+            --shadow-red: rgba(196, 30, 58, 0.3);
+            --card-bg: rgba(15, 10, 10, 0.92);
+            --card-border: rgba(196, 30, 58, 0.35);
             scroll-behavior: smooth;
         }
 
@@ -40,166 +46,33 @@
         }
 
         body {
-            font-family: 'Noto Serif Sinhala', 'Georgia', 'Playfair Display', serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 2.1;
+            font-family: 'Noto Sans Sinhala', 'Noto Serif Sinhala', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 2;
             overflow-x: hidden;
             min-height: 100vh;
-            cursor: default;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Loading Screen */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, var(--bg3) 0%, var(--bg) 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
         }
-        .loader-content {
-            text-align: center;
+        ::-webkit-scrollbar-thumb {
+            background: var(--red-dark);
+            border-radius: 4px;
         }
-        .loader-heart {
-            width: 60px;
-            height: 60px;
-            position: relative;
-            animation: loaderHeartBeat 1s ease-in-out infinite;
-            margin: 0 auto 20px;
-        }
-        .loader-heart::before,
-        .loader-heart::after {
-            content: '';
-            width: 32px;
-            height: 50px;
-            position: absolute;
-            left: 30px;
-            top: 0;
-            background: linear-gradient(135deg, var(--red-bright), var(--red));
-            border-radius: 32px 32px 0 0;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-            box-shadow: 0 0 30px var(--red-glow);
-        }
-        .loader-heart::after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
-        }
-        @keyframes loaderHeartBeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
-        .loader-text {
-            color: var(--gold);
-            font-size: 1.2em;
-            letter-spacing: 2px;
-            animation: pulseText 1.5s ease-in-out infinite;
-        }
-        @keyframes pulseText {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red-primary);
         }
 
-        /* Reading Progress Bar */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(107, 15, 26, 0.3);
-            z-index: 10000;
-        }
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--red), var(--red-bright), var(--gold));
-            width: 0%;
-            transition: width 0.1s ease;
-            box-shadow: 0 0 10px var(--red-glow);
-        }
-
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(200, 16, 46, 0.2);
-            border: 2px solid var(--red);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            color: var(--red-bright);
-            transition: all 0.3s ease;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .scroll-top:hover {
-            background: rgba(200, 16, 46, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px var(--red-glow);
-        }
-        .scroll-top:active {
-            transform: translateY(-2px);
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(200, 16, 46, 0.12) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 70%, rgba(107, 15, 26, 0.10) 0%, transparent 55%),
-                radial-gradient(ellipse at 50% 50%, rgba(180, 20, 40, 0.05) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 0%, rgba(200, 16, 46, 0.07) 0%, transparent 60%);
-            z-index: -1;
-            animation: bgShift 22s ease-in-out infinite;
-        }
-        @keyframes bgShift {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            25% {
-                opacity: 0.68;
-            }
-            50% {
-                opacity: 0.88;
-            }
-            75% {
-                opacity: 0.62;
-            }
-        }
-
-        /* Floating particles effect */
-        .floating-hearts {
+        /* Particles Background */
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -209,1087 +82,825 @@
             z-index: 0;
             overflow: hidden;
         }
-        .floating-heart {
+
+        .particle {
             position: absolute;
-            font-size: 16px;
-            animation: floatUp 9s linear infinite;
-            opacity: 0;
-            color: var(--red-bright);
-            text-shadow: 0 0 10px rgba(232, 35, 61, 0.7);
-            will-change: transform, opacity;
-        }
-        @keyframes floatUp {
-            0% {
-                transform: translateY(112vh) scale(0.2) rotate(0deg);
-                opacity: 0;
-            }
-            7% {
-                opacity: 0.85;
-            }
-            55% {
-                opacity: 0.45;
-            }
-            100% {
-                transform: translateY(-18vh) scale(1.15) rotate(45deg);
-                opacity: 0;
-            }
+            background: radial-gradient(circle, var(--red-light) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+            opacity: 0.25;
         }
 
-        /* Enhanced Heart Button */
-        .heart-btn {
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.35; }
+            90% { opacity: 0.25; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* Floating Hearts */
+        .hearts {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            width: 52px;
-            height: 52px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            filter: drop-shadow(0 0 22px var(--red-glow));
-            border-radius: 50%;
-            background: rgba(200, 16, 46, 0.1);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1rem;
+            color: var(--red-primary);
+            opacity: 0.15;
+            animation: floatHeart linear infinite;
+            text-shadow: 0 0 10px var(--red-glow);
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-100px) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        .heart-btn:hover {
-            transform: scale(1.25) rotate(5deg);
-            filter: drop-shadow(0 0 35px rgba(232, 35, 61, 0.9));
-            background: rgba(200, 16, 46, 0.2);
-        }
-        .heart-btn:active {
-            transform: scale(0.85);
-        }
-        .heart-core {
-            width: 52px;
-            height: 52px;
-            position: relative;
-            animation: heartBeat 1.2s ease-in-out infinite;
-        }
-        .heart-core::before,
-        .heart-core::after {
-            content: '';
-            width: 28px;
-            height: 44px;
-            position: absolute;
-            left: 26px;
-            top: 0;
-            background: var(--red-bright);
-            border-radius: 28px 28px 0 0;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-            box-shadow: 0 0 28px rgba(232, 35, 61, 0.9);
-        }
-        .heart-core::after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
-        }
-        @keyframes heartBeat {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            7% {
-                transform: scale(1.10);
-            }
-            16% {
-                transform: scale(0.92);
-            }
-            26% {
-                transform: scale(1.14);
-            }
-            36% {
-                transform: scale(0.94);
-            }
-            46% {
-                transform: scale(1);
-            }
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+            z-index: 2;
         }
 
-        /* Enhanced Header */
-        header {
-            text-align: center;
-            padding: 80px 20px 55px;
-            background: linear-gradient(180deg, var(--bg3) 0%, rgba(5, 5, 5, 0.3) 100%);
-            border-bottom: 2px solid var(--red-dark);
-            position: relative;
-            overflow: hidden;
-            animation: headerFadeIn 1.2s ease-out;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 80%);
+            pointer-events: none;
         }
-        @keyframes headerFadeIn {
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(200, 16, 46, 0.03) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
+
+        .hero-title {
+            font-family: 'Cinzel', 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px var(--red-glow), 0 0 60px var(--red-glow);
+            letter-spacing: 0.05em;
+            line-height: 1.2;
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--red-soft);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-shadow: 0 0 20px var(--red-glow);
         }
-        header::after {
-            content: '❤️ 🐍 ❤️';
+
+        .hero-divider {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--red-primary), transparent);
+            margin: 2rem auto;
+            box-shadow: 0 0 20px var(--red-glow);
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        .scroll-indicator {
             position: absolute;
-            bottom: -17px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 24px;
-            background: var(--bg);
-            padding: 0 22px;
-            letter-spacing: 8px;
-            z-index: 10;
-            animation: iconsBounce 2s ease-in-out infinite;
-        }
-        @keyframes iconsBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-5px); }
-        }
-        h1 {
-            font-size: 3.5em;
-            color: var(--red-bright);
-            text-shadow: 0 0 40px var(--red-glow), 0 0 80px rgba(200, 16, 46, 0.35), 0 4px 8px rgba(0,0,0,0.5);
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            position: relative;
-            z-index: 1;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-        @keyframes titleGlow {
-            from { text-shadow: 0 0 40px var(--red-glow), 0 0 80px rgba(200, 16, 46, 0.35); }
-            to { text-shadow: 0 0 50px var(--red-glow), 0 0 100px rgba(200, 16, 46, 0.5), 0 0 150px rgba(232, 35, 61, 0.3); }
-        }
-        .subtitle {
-            color: var(--gold);
-            font-size: 1.35em;
-            font-style: italic;
-            letter-spacing: 3px;
-            text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
-            position: relative;
-            z-index: 1;
-        }
-        .subtitle-sm {
-            color: var(--text-dim);
-            font-size: 1em;
-            margin-top: 12px;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
+            animation: bounce 2s infinite;
+            z-index: 3;
         }
 
-        /* Enhanced Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(8, 5, 5, 0.96);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--card-border);
-            z-index: 999;
-            overflow-x: auto;
-            white-space: nowrap;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            scrollbar-width: thin;
-            scrollbar-color: var(--red-dark) transparent;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-        nav::-webkit-scrollbar {
-            height: 4px;
-        }
-        nav::-webkit-scrollbar-thumb {
-            background: var(--red-dark);
-            border-radius: 2px;
-        }
-        nav::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 25px;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            border: 1px solid transparent;
-            font-weight: 600;
-            font-size: 0.95em;
-            position: relative;
-            overflow: hidden;
-        }
-        nav a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(200, 16, 46, 0.3), transparent);
-            transition: left 0.5s;
-        }
-        nav a:hover::before {
-            left: 100%;
-        }
-        nav a:hover,
-        nav a:focus {
-            color: #fff;
-            border-color: var(--red-bright);
-            background: rgba(200, 16, 46, 0.18);
-            box-shadow: 0 0 25px var(--card-glow), inset 0 0 10px rgba(200, 16, 46, 0.1);
-            outline: none;
-            transform: translateY(-2px);
-        }
-        nav a.active {
-            color: #fff;
-            border-color: var(--red-bright);
-            background: rgba(200, 16, 46, 0.25);
-            box-shadow: 0 0 30px var(--card-glow);
+        .scroll-indicator svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--red-primary);
+            filter: drop-shadow(0 0 10px var(--red-glow));
         }
 
-        /* Container */
-        .container {
-            max-width: 900px;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-7px); }
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 30px var(--shadow-red);
+        }
+
+        .sticky-nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 25px 60px;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        /* Enhanced Chapter Cards */
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--red-soft);
+            border-color: var(--border-glow);
+            background: rgba(196, 30, 58, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--text-white);
+            background: var(--red-primary);
+            border-color: var(--red-light);
+            box-shadow: 0 0 20px var(--red-glow);
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Chapter Cards */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-left: 5px solid var(--red);
-            border-radius: 16px;
-            padding: 45px 40px;
-            margin-bottom: 45px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.01);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
             opacity: 0;
-            transform: translateY(30px);
-            animation: chapterFadeIn 0.8s ease forwards;
+            transform: translateY(50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px var(--shadow-red);
+            position: relative;
+            overflow: hidden;
         }
-        @keyframes chapterFadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .chapter:nth-child(1) { animation-delay: 0.1s; }
-        .chapter:nth-child(2) { animation-delay: 0.2s; }
-        .chapter:nth-child(3) { animation-delay: 0.3s; }
-        .chapter:nth-child(4) { animation-delay: 0.4s; }
-        .chapter:nth-child(5) { animation-delay: 0.5s; }
-        .chapter:nth-child(6) { animation-delay: 0.6s; }
-        .chapter:nth-child(7) { animation-delay: 0.7s; }
-        .chapter:nth-child(8) { animation-delay: 0.8s; }
-        .chapter:nth-child(9) { animation-delay: 0.9s; }
-        .chapter:nth-child(10) { animation-delay: 1.0s; }
-        .chapter:nth-child(11) { animation-delay: 1.1s; }
-        .chapter:nth-child(12) { animation-delay: 1.2s; }
-        .chapter:nth-child(13) { animation-delay: 1.3s; }
+
         .chapter::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 20%, rgba(200, 16, 46, 0.03) 50%, transparent 80%);
-            pointer-events: none;
-        }
-        .chapter::after {
-            content: '🐍';
-            position: absolute;
-            bottom: 15px;
-            right: 22px;
-            font-size: 32px;
-            opacity: 0.15;
-            pointer-events: none;
-            transition: all 0.3s;
-        }
-        .chapter:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 20px 60px var(--card-glow), 0 12px 40px rgba(0, 0, 0, 0.6);
-            border-color: rgba(200, 16, 46, 0.6);
-        }
-        .chapter:hover::after {
-            opacity: 0.3;
-            transform: scale(1.1);
-        }
-        .chapter h2 {
-            color: var(--red-bright);
-            font-size: 2em;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--red-dark);
-            text-shadow: 0 0 18px var(--red-glow);
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-            font-weight: 700;
-        }
-        .chapter h3 {
-            color: var(--gold-light);
-            font-size: 1.3em;
-            margin: 32px 0 16px;
-            text-shadow: 0 0 8px rgba(201, 168, 76, 0.35);
-            position: relative;
-            z-index: 1;
-            font-weight: 600;
-        }
-        .chapter p {
-            margin-bottom: 18px;
-            text-align: justify;
-            position: relative;
-            z-index: 1;
-            text-indent: 1.5em;
-            font-size: 1.05em;
-            line-height: 2.2;
-        }
-        .chapter p:first-of-type {
-            text-indent: 0;
-        }
-        .visualize {
-            background: rgba(200, 16, 46, 0.08);
-            border-left: 4px solid var(--red);
-            padding: 20px 26px;
-            margin: 24px 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: #c8b0b0;
-            position: relative;
-            z-index: 1;
-            text-indent: 0;
-            box-shadow: inset 0 0 20px rgba(200, 16, 46, 0.05);
-            transition: all 0.3s;
-        }
-        .visualize:hover {
-            background: rgba(200, 16, 46, 0.12);
-            box-shadow: inset 0 0 30px rgba(200, 16, 46, 0.1), 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .visualize strong {
-            color: var(--red-bright);
-            font-weight: 600;
-            font-style: normal;
-        }
-        strong {
-            color: var(--red-bright);
-            font-weight: 600;
-        }
-        em {
-            color: var(--gold);
-            font-style: italic;
-        }
-        .divider {
-            text-align: center;
-            margin: 40px 0;
-            color: var(--red-dark);
-            font-size: 1.8em;
-            letter-spacing: 14px;
-            opacity: 0.6;
-        }
-        .final-words {
-            text-align: center;
-            font-size: 1.15em;
-            color: var(--gold-light);
-            margin-top: 30px;
-            text-indent: 0;
-            letter-spacing: 1px;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--red-primary), var(--red-light), var(--red-primary), transparent);
         }
 
-        /* Enhanced Footer */
-        footer {
+        .chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chapter:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--red-light);
+            box-shadow: 0 15px 60px var(--shadow-red), 0 0 40px var(--red-glow);
+            transform: translateY(-5px);
+        }
+
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .chapter-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--red-primary);
+            text-shadow: 0 0 20px var(--red-glow);
+            min-width: 80px;
+        }
+
+        .chapter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 600;
+            color: var(--text-white);
+            flex: 1;
+        }
+
+        .chapter-content {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            color: var(--text-primary);
+        }
+
+        .chapter-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .chapter-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--red-soft);
+            font-weight: 500;
+        }
+
+        .verse {
+            font-style: italic;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--red-primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            background: rgba(196, 30, 58, 0.05);
+            padding: 1.5rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 55px;
+            height: 55px;
+            background: var(--red-primary);
+            border: 2px solid var(--red-light);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            box-shadow: 0 5px 30px var(--shadow-red);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        .back-to-top:hover {
+            background: var(--red-light);
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px var(--red-glow);
+        }
+
+        .back-to-top svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--text-white);
+        }
+
+        /* Footer */
+        .footer {
             text-align: center;
-            padding: 50px 20px 45px;
-            border-top: 2px solid var(--red-dark);
-            background: linear-gradient(0deg, var(--bg3) 0%, rgba(5, 5, 5, 0.5) 100%);
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-glow);
             position: relative;
-            overflow: hidden;
-            animation: footerFadeIn 1.5s ease-out;
+            z-index: 2;
         }
-        @keyframes footerFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+
+        .footer-heart {
+            font-size: 3rem;
+            color: var(--red-primary);
+            animation: pulse 1.5s infinite;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--red-glow);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-love {
+            color: var(--red-soft);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .chapter {
+                padding: 2rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .chapter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .chapter-number {
+                font-size: 2.5rem;
+            }
+
+            .nav-container {
+                gap: 0.8rem;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .back-to-top svg {
+                width: 22px;
+                height: 22px;
             }
         }
-        footer::before {
-            content: '';
-            position: absolute;
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1.5rem;
+            }
+
+            .chapter {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .chapter-content {
+                font-size: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(200, 16, 46, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .footer-dedication {
-            font-size: 1.4em;
-            color: var(--text-bright);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-dedication .heart-icon {
-            display: inline-block;
-            color: var(--red-bright);
-            animation: heartBeat 1.2s ease-in-out infinite;
-            font-size: 1.2em;
-            margin: 0 4px;
-        }
-        .footer-forever {
-            font-size: 1.1em;
-            color: var(--gold);
-            font-style: italic;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-credit {
-            font-size: 0.85em;
-            color: var(--text-dim);
-            letter-spacing: 1px;
-            margin-top: 12px;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-credit span {
-            color: var(--red-bright);
-            font-weight: 600;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--red-dark), var(--red));
-            border-radius: 5px;
-            border: 2px solid var(--bg);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--red), var(--red-bright));
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
 
-        /* Responsive Design - Tablet */
-        @media (max-width: 1024px) {
-            .container {
-                max-width: 800px;
-                padding: 40px 20px 50px;
-            }
-            .chapter {
-                padding: 35px 30px;
-            }
+        .loader-heart {
+            font-size: 4rem;
+            color: var(--red-primary);
+            animation: loaderPulse 1s infinite;
+            text-shadow: 0 0 30px var(--red-glow);
         }
 
-        /* Responsive Design - Mobile */
-        @media (max-width: 768px) {
-            header {
-                padding: 50px 15px 40px;
-            }
-            h1 {
-                font-size: 2em;
-                letter-spacing: 2px;
-            }
-            .subtitle {
-                font-size: 1.1em;
-            }
-            .subtitle-sm {
-                font-size: 0.9em;
-            }
-            .container {
-                padding: 30px 15px 40px;
-            }
-            .chapter {
-                padding: 28px 18px;
-                margin-bottom: 30px;
-                border-radius: 12px;
-            }
-            .chapter h2 {
-                font-size: 1.5em;
-                margin-bottom: 18px;
-            }
-            .chapter h3 {
-                font-size: 1.15em;
-                margin: 24px 0 12px;
-            }
-            .chapter p {
-                text-indent: 0.8em;
-                font-size: 0.98em;
-                line-height: 2;
-            }
-            .visualize {
-                padding: 16px 18px;
-                margin: 18px 0;
-            }
-            .heart-btn {
-                top: 10px;
-                right: 10px;
-                width: 44px;
-                height: 44px;
-            }
-            .heart-core {
-                width: 44px;
-                height: 44px;
-            }
-            .heart-core::before,
-            .heart-core::after {
-                width: 24px;
-                height: 36px;
-                left: 22px;
-            }
-            .heart-core::after {
-                left: 0;
-            }
-            nav {
-                padding: 10px 12px;
-                gap: 6px;
-            }
-            nav a {
-                padding: 8px 14px;
-                font-size: 0.88em;
-            }
-            .footer-dedication {
-                font-size: 1.15em;
-            }
-            .footer-forever {
-                font-size: 1em;
-            }
-        }
-
-        /* Responsive Design - Small Mobile */
-        @media (max-width: 480px) {
-            header {
-                padding: 40px 12px 35px;
-            }
-            h1 {
-                font-size: 1.7em;
-                letter-spacing: 1px;
-            }
-            .subtitle {
-                font-size: 1em;
-                letter-spacing: 2px;
-            }
-            .subtitle-sm {
-                font-size: 0.85em;
-            }
-            .container {
-                padding: 25px 12px 35px;
-            }
-            .chapter {
-                padding: 22px 14px;
-                margin-bottom: 25px;
-            }
-            .chapter h2 {
-                font-size: 1.35em;
-            }
-            .chapter p {
-                font-size: 0.95em;
-            }
-            nav {
-                padding: 8px 10px;
-            }
-            nav a {
-                padding: 7px 12px;
-                font-size: 0.85em;
-            }
-            .heart-btn {
-                width: 40px;
-                height: 40px;
-            }
-            .heart-core {
-                width: 40px;
-                height: 40px;
-            }
-            .heart-core::before,
-            .heart-core::after {
-                width: 20px;
-                height: 32px;
-                left: 20px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .heart-btn, .floating-hearts, nav {
-                display: none;
-            }
-            body {
-                background: white;
-                color: black;
-            }
-            .chapter {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-        }
-
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
         }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-heart"></div>
-            <p class="loader-text">සුදු සර්පයාගේ පුරාවෘත්තය...</p>
+        <div class="loader-heart">❤️</div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating Hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-link active">මුල් පිටුව</a>
+            <a href="#ch1" class="nav-link">අධ්‍යාය 1</a>
+            <a href="#ch2" class="nav-link">අධ්‍යාය 2</a>
+            <a href="#ch3" class="nav-link">අධ්‍යාය 3</a>
+            <a href="#ch4" class="nav-link">අධ්‍යාය 4</a>
+            <a href="#ch5" class="nav-link">අධ්‍යාය 5</a>
+            <a href="#ch6" class="nav-link">අධ්‍යාය 6</a>
         </div>
-    </div>
-
-    <!-- Reading Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTopBtn" title="ඉහළට යන්න">⬆</div>
-
-    <div class="floating-hearts" id="floatingHearts"></div>
-
-    <div class="heart-btn" title="I love you sudu manika ❤️🖤" id="heartBtn">
-        <div class="heart-core"></div>
-    </div>
-
-    <header>
-        <h1>සුදු සර්පයාගේ පුරාවෘත්තය</h1>
-        <p class="subtitle">Legend of the White Snake · Bai She Zhuan</p>
-        <p class="subtitle-sm">අවුරුදු දහසක ආදරය, විරහව, පොරොන්දුව සහ සදාකාලික යළි හමුවීම</p>
-    </header>
-
-    <nav>
-        <a href="#ch1">❶</a><a href="#ch2">❷</a><a href="#ch3">❸</a><a href="#ch4">❹</a><a href="#ch5">❺</a>
-        <a href="#ch6">❻</a><a href="#ch7">❼</a><a href="#ch8">❽</a><a href="#ch9">❾</a><a href="#ch10">❿</a>
-        <a href="#ch11">⑪</a><a href="#ch12">⑫</a><a href="#ch13">⑬</a>
     </nav>
 
-    <div class="container">
-
-        <!-- CHAPTER 1 -->
-        <div class="chapter" id="ch1">
-            <h2>පරිච්ඡේදය 1: අමරණීය වීමේ පිපාසය</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> තද අඳුරක්. චීනයේ Tang රාජවංශ සමය. ගමක් මැද හමුදා සෙබළු දුමාරයක් මැදින් අශ්වයන් පිට නැගී කඩාගෙන එති. ඔවුන්ගේ අතේ රාජකීය සන්නසක් ඇත. සෙබළෙක් කෑගසයි: <em>"අධිරාජ්‍ය නියෝගයයි! අමරණීය වීමේ රහස සොයාගැනීමට සර්පයන් අවශ්‍යයි! ගමේ සිටින සියලු සර්පයන් අල්ලා දෙනු! අණ නොපිළිපදින්නාට මරණ දඬුවමයි!"</em>
-            </div>
-            <h3>ගමේ භීතිය</h3>
-            <p>ගම්වැසියෝ බියෙන් වෙව්ලති. මව්වරු දරුවන් තුරුළු කරගනිති. පිරිමින් කැත්ත, උදැලි රැගෙන වනයට දිව යති. සර්ප ගුල් හාරති, ගල් පෙරළති. සර්පයන්ගේ භීත කෑගැසීම් මුළු වනය පුරා දෝංකාර දෙයි.</p>
-            <h3>වනය තුළ</h3>
-            <p>ගිනි මැලයක් අසල, අනෙක් සර්පයන්ගෙන් වෙන් වී රූමත් තරුණියක් වැඩ සිටී. සුදු පැහැති සේද වස්ත්‍රයක් ඇඳි ඇයගේ කේශ කලාපය කළු පැහැති ය, දිගු ය. සඳ එළිය ඇගේ මුහුණ මත වැටී දිලිසෙයි. ඇය <strong>Blanca</strong> ය. අවුරුදු පන්සීයක් භාවනා කර මනුෂ්‍ය වෙස් ගැනීමේ හැකියාව ලත් සුදු සර්ප දේවතාවිය ය.</p>
-            <p>ඇගේ දෑස් තුළ ඇත්තේ සීතල වෛරයකි. ගම දෙසින් ඇසෙන සර්පයන්ගේ විලාප හඬ අසා ඇය මිමිණියා ය: <em>"මිනිස්සු... ඔවුන්ට අවශ්‍ය වන්නේ හැමදාම බලය පමණයි. අන් ජීවිත ගැන නොසිතති."</em></p>
-            <p><strong>Blanca ගේ ගුරුවරයා</strong> සෙවනැල්ලක් සේ පැමිණ පවසයි: <em>"Blanca, කාලය පැමිණ ඇත. අධිරාජ්‍යයේ ජෙනරාල්ව මරා දමන්න. ඔවුන්ගේ නියෝගය නැවැත්වුවහොත් අපේ ජාතිය බේරෙනු ඇත."</em></p>
-            <p>Blanca සෙමෙන් නැගිටියි. ඇගේ ශරීරය වටා හරිත පැහැති මායා ආලෝකයක් දිස් වෙයි. ඇය අහස දෙස බලා පවසයි: <em>"මේ මිනිසුන්ට පාඩමක් ඉගැන්විය යුතුයි."</em></p>
-            <p>Blanca සුදු දුමාරයක් වී අහසට නැගෙයි. ඇගේ ගමන අධිරාජ්‍ය මාලිගාව දෙසට ය. පළිගැනීමේ ගමන ඇරඹෙයි.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">සුදු සර්පයාගේ පුරාවෘත්තය</h1>
+            <p class="hero-subtitle">සුදු මැණිකා ❤️🖤</p>
+            <div class="hero-divider"></div>
+            <p class="hero-description">
+                අවුරුදු දහසක ආදරයේ ගැඹුරු කඳුළු පිරි කථාවක්...<br>
+                විරහව, පොරොන්දුව සහ සදාකාලික යළි හමුවීමේ අපූරු ගමනක්
+            </p>
         </div>
-
-        <!-- CHAPTER 2 -->
-        <div class="chapter" id="ch2">
-            <h2>පරිච්ඡේදය 2: ඝාතන උත්සාහය අසාර්ථක වීම</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> රාත්‍රිය. අධිරාජ්‍ය මාලිගාව. පහන් දහස් ගණනින් මුළු මාලිගාවම දහවලක් සේ ආලෝකමත් ව ඇත. රතු පලස් එලූ විශාල ශාලාවක ජෙනරාල්වරයා සෙබළුන්ට අණ දෙයි. මේසය මත සිතියමකි. <em>"තවත් සර්පයන් අවශ්‍යයි! හෙට හිරු උදාවට පෙර සර්පයන් දහසක් අල්ලා දෙනු!"</em>
-            </div>
-            <h3>Blanca ගේ ප්‍රහාරය</h3>
-            <p>එක්වරම ජනෙල් වීදුරු කුඩු වී සුදු දුමාරයක් සමඟ Blanca ශාලාව මැදට පැමිණෙයි. ඇගේ සුදු වස්ත්‍රය සුළඟට ලෙල දෙයි. දෑස් දිලිසෙයි. සෙබළු බියෙන් කඩු කොපුවෙන් අදිති.</p>
-            <p>Blanca අත දිගු කරයි. ඇගේ අතින් හරිත පැහැති මායා සර්පයෙක් මැවෙයි. <em>"මගේ ජාතිය විනාශ කරන ඔබට මරණය!"</em> ඇය ඒ සර්පයා ජෙනරාල් දෙසට යවයි.</p>
-            <h3>Dark General ගේ පැමිණීම</h3>
-            <p>ජෙනරාල්ට මායා සර්පයා පහර දීමට ආසන්න වන මොහොතේ, කළු සිවුරක් ඇඳි අයෙක් ජෙනරාල් ඉදිරියට පනියි. ඔහු <strong>Dark General</strong> ය - ජෙනරාල්ගේ ගුරුවරයා, බලවත් Taoist මායාකරුවෙකි.</p>
-            <p>Dark General දෑත් ඔසවයි. ඔහුගේ අතින් කළු පැහැති යෝධ තඹ සර්ප මායාවක් මැවෙයි. Blanca ගේ හරිත සර්පයා සහ Dark General ගේ තඹ සර්පයා මාලිගාව මැද ගැටෙති. පොළව දෙදරයි. කණු කඩා වැටෙයි. පහන් කුඩු වෙයි.</p>
-            <p>Dark General සිනාසෙයි. <em>"පුංචි සර්ප පැටියෙක් මට අභියෝග කරනවා ද?"</em> ඔහු අවසන් බලවත් මායා ප්‍රහාරයක් එල්ල කරයි. කළු අකුණක් වැනි යමක් Blanca ගේ පපුවට වදියි.</p>
-            <p>Blanca <em>"ආහ්!"</em> ගා කෑගසා මාලිගාවේ වීදුරු වහලය කඩාගෙන අහසට විසි වෙයි. ඇගේ මායා බලය, මතකය, ශක්තිය සියල්ල එකවර අතුරුදහන් වෙයි. ඇගේ සිරුර සීතල වී, සුදු වස්ත්‍රය ලේ වලින් තෙත් වී අහසින් පහළ ගඟකට වැටෙයි. ඇගේ අතේ ඇත්තේ <strong>ජේඩ් හෙයාපින්</strong> පමණි. ඇයට කිසිවක් මතක නැත.</p>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
         </div>
+    </section>
 
-        <!-- CHAPTER 3 -->
-        <div class="chapter" id="ch3">
-            <h2>පරිච්ඡේදය 3: ගංගා ඉවුරේ කුලුඳුල් හමුව</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> පාන්දර. හිරු එළිය ගඟ මත වැටී රන්වන් පැහැ වී ඇත. කුරුල්ලන් ගී ගයති. ගං ඉවුරේ බට ගස් සුළඟට සෙලවෙයි. <strong>Xuan</strong> නම් තරුණයෙක් ගල් තලාවක් මත සිට බට ලීයෙන් මසුන් අල්ලයි. ඔහු අසල සුදු පැහැති බල්ලෙක් වූ <strong>Dudou</strong> දුව පැන සෙල්ලම් කරයි. Xuan ගේ වස්ත්‍ර පැරණි ය, එහෙත් මුහුණේ අහිංසක සිනාවකි.
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Chapter 1 -->
+        <article class="chapter" id="ch1">
+            <div class="chapter-header">
+                <div class="chapter-number">01</div>
+                <h2 class="chapter-title">දිව්‍යමය ආරම්භය</h2>
             </div>
-            <h3>බේරා ගැනීම</h3>
-            <p>Dudou එක්වරම බුරන්නට වෙයි. ගඟ දෙසට දුවයි. Xuan බලන විට සුදු වස්ත්‍රයක් ඇඳි කාන්තාවක් ජලයේ පාවෙමින් එයි. කේශ කලාපය ජලයේ විසිරී ඇත. මුහුණ සුදුමැලි ය.</p>
-            <p><em>"දෙවියනේ! කෙල්ලෙක්!"</em> Xuan බට ලීය විසි කර එකවරම ජලයට පනියි. Dudou ද ඔහු සමඟ ය. Xuan අමාරුවෙන් Blanca ව ඇදගෙන ගොඩට ගනියි.</p>
-            <p>Xuan, Blanca ව තණකොළ මත තබා ඇගේ මුහුණට තට්ටු කරයි. <em>"නංගී, නංගී ඇහැරෙන්න!"</em> Dudou ඇවිත් Blanca ගේ මුහුණ ලෙවකයි.</p>
-            <p>Blanca ගේ ඇසිපිය සෙමෙන් සැලෙයි. ඇය කෙලින්ම බලන්නේ නිල් අහස දෙස ය. ඉන්පසු Xuan ගේ මුහුණ දෙස ය. Xuan ගේ දෑස් විශාල ය, කළු ය, අහිංසක ය.</p>
-            <p>Blanca කතා කිරීමට උත්සාහ කරයි. <em>"මම... මම..."</em> ඇගේ මුව වෙව්ලයි. Xuan සිනාසෙයි. <em>"හරි හරි, කලබල වෙන්න එපා. ඔබ දැන් ආරක්ෂිතයි."</em></p>
-            <h3>මතකය නැති වීම</h3>
-            <p>Blanca වටපිට බලයි. <em>"මේ... මේ කොහේද? ඔබ කවුද? මම... මම කවුද?"</em> Xuan ගේ සිනාව අතුරුදහන් වෙයි. <em>"ඔබට ඔබේ නමවත් මතක නැද්ද?"</em> Blanca හිස අල්ලා ගනියි. <em>"නැහැ... කිසිවක් මතක නැහැ. කළුවරයි... සියල්ල කළුවරයි."</em></p>
-            <p>එක්වරම Blanca ගේ අතේ තිබූ ජේඩ් හෙයාපින් එකෙන් කොළ පැහැති ආලෝකයක් විහිදෙයි. හෙයාපින් එක අහසට පාවී කැරකෙයි. Xuan සහ Dudou බියෙන් පසුපසට යති. <em>"මේක... මේක මගේ විය යුතුයි."</em> හෙයාපින් එක නැවත ඇගේ අතට පැමිණෙයි. එහෙත් ඇයට එය කුමක්දැයි තේරුම් ගත නොහැක.</p>
-            <p>Xuan, Blanca ගේ අසරණ මුහුණ දෙස බලා සුසුමක් හෙළයි. <em>"හරි. ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න. අපි ඔබේ මතකය සොයමු. මගේ නම Xuan. මේ ඉන්නේ Dudou."</em> Dudou වලිගය වනයි. පළිගැනීමේ කතාව, අහිංසක හමුවීමකින් අලුත් මඟකට හැරෙයි.</p>
-        </div>
-
-        <!-- CHAPTER 4 -->
-        <div class="chapter" id="ch4">
-            <h2>පරිච්ඡේදය 4: කොවුල් ගුහාවේ පෙම් පළහිලව්ව</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> රාත්‍රිය. අහසේ විශාල සඳක්. තරු පිරී ඇත. <strong>පාළු කොවුල් ගුහාව</strong> - ගුහාවේ වහලයේ සහ බිත්තිවල දිලිසෙන නිල් පැහැති කොවුල් පැටවුන් දහස් ගණනකි. ඔවුන්ගේ ආලෝකයෙන් මුළු ගුහාවම මැණික් ගුහාවක් සේ දිස් වෙයි. බිම නිසල ජලය. ජලයේ සඳේ සෙවනැල්ල වැටී ඇත.
+            <div class="chapter-content">
+                <p>
+                    බොහෝ කාලයකට පෙර, ස්වර්ගයේ උතුම් දෙවියන් වහන්සේලා අතර, 
+                    <span class="highlight">සුදු මැණිකා</span> නම් දිව්‍ය සර්ප රාජිනියක් වාසය කළාය. 
+                    ඇය සුදු පැහැති, දිව්‍ය ආලෝකයෙන් බබළන, කරුණාවෙන් පිරුණු සත්වයෙකි.
+                </p>
+                <p>
+                    ඇය වසර දහසක් තිස්සේ ධර්මය පුරුදු පුහුණු කරමින්, 
+                    මනුෂ්‍ය ලෝකයේ දුක සැප දකිමින්, ජීවීන්ට උපකාර කරමින් කාලය ගත කළාය.
+                </p>
+                <div class="verse">
+                    "සත්වයාගේ හදවත පිරිසිදු නම්,<br>
+                    ඔහුගේ ආධ්‍යාත්මය දිව්‍ය වේ"
+                </div>
+                <p>
+                    එක් දිනක, ඇය මනුෂ්‍ය ලෝකයේ සුන්දරත්වය දකිමින්, 
+                    මනුෂ්‍ය ආදරයේ ගැඹුර ගැන කුතුහලයෙන් යුක්ත වූවාය.
+                </p>
             </div>
-            <h3>බෝට්ටු ගමන</h3>
-            <p>Xuan කුඩා ලී බෝට්ටුවක් පදියි. Blanca බෝට්ටුවේ ඉදිරියෙන් වාඩි වී වටපිට බලයි. ඇගේ සුදු වස්ත්‍රයත් කොවුල් ආලෝකයත් එක් වී ඇය සුරංගනාවියක සේ පෙනේ. Dudou බෝට්ටුවේ පිටුපසින් වාඩි වී කොවුල් පැටවුන් දෙස බලා වලිගය වනයි.</p>
-            <p>Xuan සෙමෙන් හබල පදියි. <em>"මේ ගුහාවට ගමේ අය එන්නේ නැහැ. ඔවුන් කියන්නේ මෙහි හොල්මන් සිටින බවයි. එහෙත් මට නම් මේ ලෝකයේ ලස්සනම තැන මෙයයි."</em></p>
-            <p>Blanca කොවුල් පැටවෙකු දෙසට අත දිගු කරයි. පැටියා පැමිණ ඇගේ ඇඟිල්ල මත වාඩි වෙයි. Blanca ගේ මුහුණේ පළමු වරට ස්වභාවික සිනාවක්. සීතල නැති, වෛර නැති, පිරිසිදු සිනාවක්.</p>
-            <h3>"ආදරය කියන්නේ මොකක්ද?"</h3>
-            <p>Xuan බෝට්ටුව නවතා හබල පැත්තකින් තබයි. ඔහු Blanca දෙස බලාගෙන අසයි: <em>"ඔබට මතක නැති නිසා මම අහන්නේ... ආදරය කියන්නේ මොකක්ද කියලා ඔබ දන්නවාද?"</em></p>
-            <p>Blanca කොවුල් පැටියා දෙස බලාගෙන සිටියි. <em>"ආදරය...?"</em> ඇයට ඒ වචනය අලුත් ය. සිතට අමුතු හැඟීමක් පැමිණෙයි. <em>"මම දන්නේ නැහැ... එහෙත් ඒ වචනය ඇසෙන විට මෙතන රිදෙනවා."</em> ඇය පපුවට අත තබයි.</p>
-            <p>Xuan සිනාසෙයි. <em>"මමත් හරියටම දන්නේ නැහැ. එහෙත් මට හිතෙන්නේ... ආදරය කියන්නේ කෙනෙකු වෙනුවෙන් තමන්ගේ ලස්සනම දේ දීලා දමන්න හිතෙන එක විය යුතුයි."</em></p>
-            <p>Blanca, Xuan ගේ දෑස් දෙස බලා සිටියි. ඒ දෑස් තුළ බොරුවක් නැත. වෛරයක් නැත. ඇත්තේ ඇය වෙනුවෙන්ම වූ අහිංසකත්වයකි. ගුහාවේ කොවුල් ආලෝක සමඟ Blanca ගේ සිතේ තිබූ මිනිසුන් ගැන වෛරය සෙමෙන් දිය වී යන්නට පටන් ගනියි. <em>"මිනිස්සු... හැමෝම නරක නැහැ නේද?"</em> Blanca සෙමෙන් අසයි. Xuan හිස වනයි. <em>"නැති වෙන්න ඇති. සර්පයන් හැමෝම නරක නැහැ වගේ."</em></p>
-            <p>වෛරයෙන් ආරම්භ වූ කතාව, ආදරය නම් අලුත් හැඟීමකින් ලස්සන වන්නට පටන් ගනියි.</p>
-        </div>
+        </article>
 
-        <!-- CHAPTER 5 -->
-        <div class="chapter" id="ch5">
-            <h2>පරිච්ඡේදය 5: නරි කඩේදී හෙළිවන සත්‍යය</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> මීදුමෙන් වැසුණු වනාන්තරයක් මැද අමුතු කඩයක්. කඩයේ වහලේ, බිත්තිවල, ගස් අතුවල මුහුණු සිය ගණනක් එල්ලා ඇත. සිනාසෙන මුහුණු, හඬන මුහුණු, බිය වූ මුහුණු. රාත්‍රියේ ඒ මුහුණුවල දෑස් දිලිසෙයි. කඩය ඇතුළත රතු පහන් ආලෝකය. සෑම තැනම බෙහෙත් බෝතල්, පොත්, අමුතු සතුන්ගේ ඇටකටු. කඩයේ හිමිකාරිය <strong>නරි තරුණිය</strong> ය. ලස්සන කොළ පැහැති කිමෝනාවක් ඇඳ, හිසේ නරි කන් දෙකක් ඇත. සිනාසෙන විට උල් දත් පෙනේ.
+        <!-- Chapter 2 -->
+        <article class="chapter" id="ch2">
+            <div class="chapter-header">
+                <div class="chapter-number">02</div>
+                <h2 class="chapter-title">මනුෂ්‍ය ලෝකයට පැමිණීම</h2>
             </div>
-            <h3>මිල: "වඩාත්ම වටිනා දේ"</h3>
-            <p>Xuan, Blanca ව කැටුව කඩයට පැමිණෙයි. Dudou බියෙන් Xuan ගේ කකුල් අතර සැඟවෙයි. නරි තරුණිය Xuan දෙස බලා සිනාසෙයි. <em>"ආ කොල්ලා, අද මොනවා ද ඕන? සර්ප විෂක් ද? ආදර බෙහෙතක් ද?"</em> Xuan පවසයි: <em>"අක්කේ, මේ නංගිට ඇගේ මතකය නැති වෙලා. උදව්වක් කරන්න පුළුවන් ද?"</em></p>
-            <p>නරි තරුණිය Blanca ව උඩ සිට පහළට බලයි. ඇගේ නාසය උඩට ඇද වාතය ඉඹියි. <em>"ම්ම්... සර්පයෙකුගේ ගඳයි. එහෙත්... පිරිසිදු එකක්. අවුරුදු පන්සීයකට වඩා පැරණි එකක්."</em> ඇය මිමිණියි.</p>
-            <p>නරි තරුණිය විශාල ස්ඵටික බෝලයක් මේසය මත තබයි. <em>"මතකය දෙන්න පුළුවන්. එහෙත් මිල ගෙවිය යුතුයි. ඔබේ ජීවිතයේ 'වඩාත්ම වටිනා දේ' මට දෙන්න."</em></p>
-            <p>Blanca එක්වරම ඇගේ පිටුපසට අත දමයි. ඇගේ ඇඟිලි තුඩුවලින් කොළ පැහැති ආලෝකයක් පැමිණෙයි. <em>"මගේ වලිගය..."</em> ඇය මිමිණියි.</p>
-            <h3>Xuan ගේ කැපකිරීම</h3>
-            <p>Blanca වලිගය දීමට සූදානම් වන විට Xuan <em>"එපා!"</em> ගා කෑගසයි. ඔහු තම අතේ තිබූ පැරණි, ගෙවී ගිය බට සැරයටිය නරි තරුණියට දිගු කරයි. නරි තරුණිය සිනාසෙයි. <em>"හා! පැරණි බට ලීයක් ද ඔබේ වටිනාම දේ?"</em></p>
-            <p>Xuan ගේ දෑස්වල කඳුළු පිරේ. <em>"ඔව්. මේක මගේ තාත්තා මට දීපු එකම දේ. තාත්තා මැරෙන්න කලින් කිව්වා 'මේකෙන් පරිස්සමින් ජීවත් වෙයන්' කියලා. මගේ ජීවිතයේ තියෙන ලස්සනම, වටිනාම මතකය මේක."</em></p>
-            <h3>සත්‍යය එළි වීම</h3>
-            <p>නරි තරුණිය Xuan දෙසත් Blanca දෙසත් මාරුවෙන් මාරුවට බලයි. ඇය සිනාව නවතා බැරෑරුම් වෙයි. <em>"හරි. ඔබේ හිත පිරිසිදුයි කොල්ලෝ."</em> ඇය ස්ඵටික බෝලය Blanca ගේ නළලට තබයි.</p>
-            <p>එක්වරම Blanca ගේ සිතට පැරණි දර්ශන ගලා එයි. සර්පයෙකුව භාවනා කළ අයුරු, ගුරුවරයා, ජෙනරාල්ව මැරීමට ගිය අයුරු, Dark General, ගඟට වැටුණු අයුරු... සියල්ල.</p>
-            <p>Blanca <em>"අම්මෝ!"</em> ගා දණ ගසයි. <em>"මම... මම සුදු සර්ප දේවතාවියක්... Blanca... මම මිනිස්සු මරන්න ආපු කෙනෙක්..."</em></p>
-            <p>Xuan බියෙන් පසුපසට යයි. <em>"සර්ප... දේවතාවියක්?"</em> Dudou බුරයි. එහෙත් Xuan, බියෙන් හඬන Blanca දෙස බලයි. ඔහු සෙමෙන් ළං වී ඇගේ උරහිසට අත තබයි. <em>"ඔබ මොන ජාතියක වුණත් මට ඔබ ඔබමයි Blanca. ඔබ මගේ යාළුවා."</em></p>
-            <p>Blanca, Xuan දෙස අදහාගත නොහැකිව බලා සිටියි. ඇය මැරීමට පැමිණි මනුෂ්‍ය ජාතියේ කොල්ලෙක් ඇයව බදා ගනියි. Blanca ගේ සිතේ මිනිසුන් ගැන තිබූ අවසන් වෛර බිඳී ඒ මොහොතේ නැති වී යයි.</p>
-            <p>නරි තරුණිය Xuan ට බට සැරයටිය ආපසු දෙයි. <em>"තියාගන්න කොල්ලෝ. ආදරය ඉස්සරහ මිලක් නැහැ."</em></p>
-        </div>
-
-        <!-- CHAPTER 6 -->
-        <div class="chapter" id="ch6">
-            <h2>පරිච්ඡේදය 6: හරිත සර්පයා Verta ගේ ආගමනය</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> අහස කළු කරගෙන එන කුණාටුවක්. ගම මැද ගිනි අරන් දැවෙන ගස්. මිනිස්සු කෑගසමින් දුවති. <em>"කුණාටුවක්! ලොකු කුණාටුවක් එනවා!"</em> එක්වරම අහස දෙබෑ කරගෙන හරිත පැහැති අකුණක් පොළොවට ගසයි. දුමාරය මැදින් කොළ පැහැති සේද වස්ත්‍රයක් ඇඳි සැර තරුණියක් බිමට බසියි. කේශ කලාපය කළු ය, දෑස් දිලිසෙයි, තොල් රතු ය. ඇය <strong>Verta</strong> - හරිත සර්ප දේවතාවිය, Blanca ගේ නැගණිය.
+            <div class="chapter-content">
+                <p>
+                    සුදු මැණිකා තීරණය කළාය තමන් මනුෂ්‍ය රූපයක් ගෙන, 
+                    මනුෂ්‍ය ලෝකයේ ජීවත් විය යුතු බවට. ඇයගේ බලවත් ආධ්‍යාත්මික ශක්තිය නිසා, 
+                    ඇයට සුන්දර තරුණ කාන්තාවකගේ රූපයක් ගැනීමට හැකි විය.
+                </p>
+                <p>
+                    ඇය <span class="highlight">බයි සු චෙන්</span> නමින් හැඳින්වූ අතර, 
+                    ඇයගේ සුන්දරත්වය, බුද්ධිය සහ කරුණාව නිසා සියලු දෙනාගේ ආදරය දිනා ගත්තාය.
+                </p>
+                <p>
+                    ඇයගේ විශ්වාසවන්ත සේවිකාව වූයේ කළු සර්ප රාජිනියකි, 
+                    ඇය <span class="highlight">ෂියෝ ක්විං</span> ලෙස හැඳින්වූ අතර, 
+                    ඇයද මනුෂ්‍ය රූපයක් ගෙන සුදු මැණිකා සමඟ මනුෂ්‍ය ලෝකයට පැමිණියාය.
+                </p>
             </div>
-            <h3>සහෝදරියන්ගේ හමුව</h3>
-            <p>Verta වටපිට බලයි. <em>"අක්කේ! අක්කේ කොහෙද ඉන්නේ!"</em> ඇගේ කටහඬට ගස් ගල් හෙල්ලෙයි. ඇයට මනුෂ්‍ය ලෝකයට පැමිණීමට සිදු වූයේ අක්කා සොයා ගැනීමට ය.</p>
-            <p>ඒ වන විට Xuan, Blanca සමඟ වනය මැද පැල්පතේ සිටියි. Blanca තමන් සර්ප දේවතාවියක් බව දැනගත් පසු Xuan ට දුකකි. <em>"ඔබ මාව දාලා යයි ද?"</em> Xuan අසයි.</p>
-            <p>එක්වරම පැල්පතේ වහලය ගැලවී යයි. සුළඟට සියල්ල විසි වෙයි. Verta අහසින් කඩාගෙන බසියි. <em>"අක්කේ!"</em> Verta, Blanca ව දුටු වහාම දුවගෙන ඇවිත් බදා ගනියි. <em>"මම හිතුවා ඔබ මැරුණා කියලා! අවුරුදු ගානක් ඔබව හෙව්වා!"</em> Blanca ද නැගණිය බදා ගනියි. <em>"Verta... මල්ලී..."</em> දෙදෙනාම හඬති.</p>
-            <h3>Xuan සමඟ ගැටුම</h3>
-            <p>Verta එක්වරම Xuan ව දකියි. Dudou බියෙන් බුරයි. Verta ගේ දෑස් රතු වෙයි. <em>"මනුස්සයෙක්?! අක්කේ ඔබ මනුස්සයෙක් එක්ක ඉන්නවා ද? ඔවුන් අපේ ජාතිය විනාශ කරනවා! ඔබට පිස්සු ද?"</em> Verta අත දිගු කරයි. අතින් හරිත පැහැති මායා සර්පයෙක් මැවෙයි. Xuan ව මැරීමට ය.</p>
-            <p>Blanca එක්වරම Xuan ඉදිරියට පනියි. <em>"එපා Verta! ඔහුට අත තියන්න එපා! Xuan මගේ ජීවිතය බේරාගත්තා. ඔහු අනිත් මිනිස්සු වගේ නෙවෙයි!"</em> Verta ට කෝපය පැමිණෙයි. <em>"අක්කේ ඔබට මොනවා වෙලා ද? මනුස්සයෙක් වෙනුවෙන් ඔබේම නැගණියට විරුද්ධ වෙනවා ද?"</em></p>
-            <h3>Dark General ගේ යුද්ධය</h3>
-            <p>ඔවුන් දෙදෙනා රණ්ඩු වන අතර, දුර කන්දක් මුදුනින් කළු දුමාරයක් නැගෙයි. <strong>Dark General</strong> සර්පයන් දහස් ගණනකගේ ජීව ශක්තිය උරාගෙන යෝධ වී ඇත. <em>"සියලු සර්පයන් මගේ! ඔවුන්ගේ බලයෙන් මම අමරණීය වෙනවා!"</em> අහස කළු වෙයි. පොළොව දෙදරයි. Dark General ගේ යෝධ තඹ සර්ප හමුදාව ගමට පහර දීමට එයි.</p>
-            <p>Verta, Blanca දෙස බලයි. ඉන්පසු බියෙන් වෙව්ලන Xuan දෙස බලයි. <em>"අක්කේ... අපිට සටන් කරන්න වෙනවා. ඔබ මාත් එක්ක එකතු වෙනවා ද?"</em> Blanca, Xuan ගේ අත අල්ලා ගනියි. ඉන්පසු Verta ගේ අත අල්ලයි. <em>"ඔව්. අපි තුන්දෙනාම එකතු වෙලා සටන් කරනවා."</em></p>
-            <p>සුදු සර්පයා, හරිත සර්පයා සහ මනුෂ්‍ය කොල්ලා එක් වෙති. මහා යුද්ධය ඇරඹීමට ආසන්න ය.</p>
-        </div>
+        </article>
 
-        <!-- CHAPTER 7 -->
-        <div class="chapter" id="ch7">
-            <h2>පරිච්ඡේදය 7: මහා යුද්ධය සහ අවසන් කැපකිරීම</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> අහස සම්පූර්ණයෙන්ම කළු වී ඇත. හිරු නැති වී ඇත. <strong>Dark General</strong> යෝධයෙකු වී ඇත. ඔහුගේ ශරීරය වටා සර්පයන් දහස් ගණනකගේ කෑගැසීම් ඇසේ. ඔහුගේ පපුවේ විශාල තඹ සර්ප ලකුණක් දිලිසෙයි. ඔහු පිටුපසින් යෝධ තඹ සර්ප හමුදාවක්. බිම හාරමින්, ගස් කඩා දමමින් ගමට කඩාගෙන එති.
+        <!-- Chapter 3 -->
+        <article class="chapter" id="ch3">
+            <div class="chapter-header">
+                <div class="chapter-number">03</div>
+                <h2 class="chapter-title">ආදරයේ ආරම්භය</h2>
             </div>
-            <h3>සටන ඇරඹීම</h3>
-            <p>Dark General සිනාසෙයි. <em>"පුංචි සර්ප කෙල්ලෝ දෙන්නෙක් මාව නවත්තන්න ද? ඔයාලා දෙන්නගෙම බලය මට ඕන!"</em> ඔහු අත දිගු කරයි. තඹ සර්ප හමුදාව <em>"හීස්ස්ස්"</em> ගා Blanca, Verta දෙදෙනා දෙසට කඩාගෙන එයි.</p>
-            <p>Verta කෑගසයි: <em>"අක්කේ!"</em> දෙදෙනා දෑත් ඔසවති. Blanca ගෙන් සුදු පැහැති, Verta ගෙන් කොළ පැහැති මායා ආලෝක දෙකක් විහිදී විශාල සර්පයන් දෙදෙනෙකු බවට පත් වෙයි. සුදු සර්පයා සහ හරිත සර්පයා තඹ සර්ප හමුදාව සමඟ ගැටෙති. පොළොව දෙදරයි. ගස් මුලින් උගුලා යයි. අහසේ අකුණු ගසයි.</p>
-            <h3>Xuan ගේ කැපකිරීම</h3>
-            <p>Dark General, Blanca දෙසට අවසන් බලවත් මායා ප්‍රහාරයක් එල්ල කරයි. කළු අකුණක් වැනි යමක්. Blanca ට ඉන් බේරීමට නොහැක.</p>
-            <p>ඒ මොහොතේ Xuan <em>"Blancaaa!"</em> ගා කෑගසමින් Blanca ඉදිරියට පනියි. Dark General ගේ මායා ප්‍රහාරය Xuan ගේ පපුවට වදින්නට යන විට, Xuan තම බට සැරයටිය පපුවට තද කර ගනියි. එක්වරම බට සැරයටිය පුපුරා ගොස් Xuan ගේ ජීව ශක්තියෙන් සැදුණු කොළ පැහැති මායා කඩුවක් මැවෙයි. Xuan ගේ සිරුර සෙමෙන් දිලිසෙයි. ඔහුගේ මුළු ජීවිතයම ඒ කඩුවට යයි.</p>
-            <p>Xuan අමාරුවෙන් සිනාසී කඩුව Blanca ට දෙයි. <em>"Blanca... මගේ ජීවිතේ වටිනම දේ ඔබ... මේකෙන්... ඔහුව නවත්තන්න..."</em></p>
-            <h3>අවසන් පහර</h3>
-            <p>Blanca කෑගසයි: <em>"Xuaaan!"</em> ඇගේ දෑසින් කඳුළු ගලා යයි. එහෙත් ඇය Xuan දුන් කොළ පැහැති ජීව කඩුව අතට ගනියි. Verta, අක්කාගේ අත අල්ලා ගනියි. <em>"අක්කේ, එකට!"</em> සහෝදරියෝ දෙදෙනා එක් වී, Xuan ගේ ජීව ශක්තියෙන් සැදුණු කඩුවෙන් Dark General ගේ පපුවේ තිබූ තඹ සර්ප ලකුණට අනිති.</p>
-            <p><em>"ආහ්!!"</em> Dark General කෑගසයි. ඔහුගේ සිරුර පුපුරා ගොස් අහසට කළු දුමාරයක් වෙයි. ඔහු උරාගෙන සිටි සර්පයන් දහස් ගණනකගේ ආත්ම නිදහස් වී අහසට නැගෙයි.</p>
-            <h3>Xuan ගේ අවසානය</h3>
-            <p>යුද්ධය නිම වී ඇත. සෑම තැනම නිහැඬියාවකි. Blanca, Xuan ව ඔඩොක්කුවේ තබාගෙන බිම වාඩි වී සිටියි. Xuan ගේ සිරුර සීතල වී ඇත. ඔහුගේ හුස්ම සෙමෙන් ගලා යයි. Xuan, Blanca ගේ මුහුණ අතගා සිනාසෙයි. <em>"Blanca... මට... තව අවුරුදු පන්සීයක්... ඔබත් එක්ක ඉන්න තිබ්බා නම්..."</em> Blanca ගේ කඳුළු Xuan ගේ මුහුණ මත වැටෙයි. <em>"Xuan... යන්න එපා... මාව දාලා යන්න එපා..."</em> Xuan අවසන් වරට සිනාසී දෑස් පියා ගනියි. <em>"මම... ආදරෙයි..."</em></p>
-            <h3>පොරොන්දුව</h3>
-            <p>Blanca, Xuan ගේ මෘත ශරීරය තුරුළු කරගෙන අහස දෙස බලා කෑගසයි. කඳු හෙල්ලෙන තරමේ හඬකින්. <em>"Xuaaaaaaan!!"</em> Verta අක්කා අසල දණ ගසාගෙන හඬයි. Dudou පැමිණ Xuan ගේ මුහුණ ලෙවකා කෙඳිරිගායි.</p>
-            <p>Blanca, Xuan ගේ නළල සිඹ පොරොන්දු වෙයි. <em>"Xuan... මම අවුරුදු පන්සීයක් බලාගෙන ඉන්නවා. ඔබ නැවත උපදින තුරු මම මේ පොළොවේ ඉන්නවා. ඊළඟ ජීවිතයේ දී අපි නැවත හමුවෙමු. ඒක මගේ පොරොන්දුවක්."</em></p>
-            <p>වෛරයෙන් ආරම්භ වූ කතාව, ලෝකයේ ලස්සනම ආදර කතාව බවට පත් වී, ලොකුම කැපකිරීමකින් මේ මොහොතේ නතර වෙයි. අවුරුදු පන්සීයක බලා සිටීමේ පොරොන්දුවක් සමඟ.</p>
-        </div>
-
-        <!-- CHAPTER 8 -->
-        <div class="chapter" id="ch8">
-            <h2>පරිච්ඡේදය 8: බටහිර විල උඩ පුනර්භවයේ හමුව</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> අවුරුදු පන්සීයකට පසුව. වසන්ත සමය. Hangzhou නගරය, <strong>බටහිර විල</strong>. විල වටා සකුරා මල් පිපී ඇත. රෝස පැහැති පෙති සුළඟට පාවී ජලය මත තැවරී ඇත. ඈතින් Leifeng Pagoda හි සෙවනැල්ල දිස් වෙයි. විල මැදින් ගල් පාලමක් - <strong>Broken Bridge</strong>. අහස මීදුමෙන් බොඳ වී ඇත.
+            <div class="chapter-content">
+                <p>
+                    එක් වසන්ත දිනක, සුදු මැණිකා <span class="highlight">සිහින දිය ඇල්ල</span> වෙත ගියාය. 
+                    එහිදී ඇය මුණගැසුණේ <span class="highlight">සුන්දර තරුණයෙකුට</span>, 
+                    ඔහුගේ නම <span class="highlight">සුදු සර්පයා</span> විය.
+                </p>
+                <p>
+                    ඔවුන් දෙදෙනාගේ ඇස් හමුවූ මොහොතේම, 
+                    ඔවුන්ගේ හදවත් එකිනෙකට බැඳුණි. 
+                    එය සරල ආකර්ෂණයක් නොව, 
+                    ආත්ම දෙකක් අතර සදාකාලික බැඳීමකි.
+                </p>
+                <div class="verse">
+                    "ආදරය යනු හදවත් දෙකක් එකම තාලයට ගැසීමයි,<br>
+                    ආත්ම දෙකක් එකම ගීතයක් ගායනා කිරීමයි"
+                </div>
+                <p>
+                    ඔවුන් දිනපතාම හමුවූහ, කතා කළහ, සිනාසුණහ. 
+                    සෑම මොහොතක්ම ඔවුන්ට අමතක නොවන මතකයන් බවට පත්විය.
+                </p>
             </div>
-            <h3>Blanca ගේ බලා සිටීම</h3>
-            <p>පාලම මත සුදු සේද වස්ත්‍රයක් ඇඳි තරුණියක් සිටියි. අවුරුදු පන්සීයක් ගත වී ඇතත් ඇය තවමත් රූමත් ය. එහෙත් දෑස් තුළ ඇත්තේ ගැඹුරු දුකක්, බලාපොරොත්තුවක්. ඇය <strong>Blanca</strong> ය. ඇය සෑම වසන්තයකම මේ පාලමට පැමිණෙයි. Xuan ව සොයාගෙන. <em>"මේ වසන්තයටවත් ඔහු එයි ද?"</em> ඇය සිතයි.</p>
-            <p>Verta ඇය අසලින් සිටියි. කොළ පැහැති වස්ත්‍රයක් ඇඳ ඇත. <em>"අක්කේ, අවුරුදු පන්සීයක් ගෙවී ගියා. තාම ඔහු ආවේ නැහැ. අපි යමු ද?"</em> Blanca හිස වනයි. <em>"නැහැ Verta. ඔහු එනවා. Xuan පොරොන්දු වුණා. ආත්මය කොහේ හිටියත් ඔහු මාව සොයාගෙන එනවා."</em></p>
-            <h3>වැස්ස සහ කුඩය</h3>
-            <p>එක්වරම අහස කළු කරගෙන වැස්සක් කඩා හැලෙයි. සකුරා මල් පෙති වැස්සට තෙමී බිම වැටෙයි. මිනිස්සු කුඩ අල්ලාගෙන දුවති. Blanca පමණක් පාලම මැද වැස්සට තෙමී තෙමී සිටගෙන සිටියි.</p>
-            <p>ඒ වන විට, පාලමේ අනෙක් පැත්තෙන් අහිංසක, කඩවසම් තරුණයෙක් කුඩයක් අල්ලාගෙන පැමිණෙයි. සුදු පැහැති වස්ත්‍රයක් ඇඳ ඇත. අතේ බෙහෙත් මල්ලකි. ඔහු <strong>Xu Xian</strong> - Xuan ගේ පුනර්භවය. ඔහු දැන් වෛද්‍යවරයෙකි. අහිංසක දෑස්, මුහුණේ කරුණාවන්ත සිනාව. Xuan ගේ මුහුණුම ය.</p>
-            <p>Xu Xian, වැස්සට තෙමෙන Blanca ව දකියි. ඔහුගේ පාද නතර වෙයි. සිතට අමුතු හැඟීමක් පැමිණෙයි. මීට පෙර කිසිදා නුදුටු කෙනෙකුව අවුරුදු දහසක් තිස්සේ දන්නාක් මෙනි.</p>
-            <h3>පළමු වචන</h3>
-            <p>Xu Xian සෙමෙන් Blanca වෙත පැමිණෙයි. ඔහුගේ කුඩය Blanca ගේ හිසට අල්ලයි. වැස්ස නතර වෙයි. <em>"නංගී... වැස්සට තෙමෙනවානේ. ලෙඩ වෙයි."</em> ඔහුගේ කටහඬ... Xuan ගේ කටහඬම ය.</p>
-            <p>Blanca ගැස්සී උඩ බලයි. ඇගේ දෑස් විශාල වෙයි. කඳුළු පිරී උතුරයි. <em>"X...Xuan...?"</em> Xu Xian අන්දුන් වෙයි. <em>"නැහැ... මගේ නම Xu Xian. අපි... මීට කලින් හමුවෙලා තියෙනවා ද?"</em></p>
-            <p>Blanca ට කතා කළ නොහැක. අවුරුදු පන්සීයක කඳුළු එකවර පිට වෙයි. ඇය Xu Xian ගේ අත අල්ලා ගනියි. උණුසුම්. හරියට Xuan ගේ අත වගේ. Verta දුර සිට මෙය බලා සිට සිනාසෙයි. <em>"අන්තිමට... අක්කගේ බලාපොරොත්තුව හරි ගියා."</em></p>
-            <p>Xu Xian ටත් යමක් සිදු වෙයි. මේ තරුණිය දුටු විට පපුව රිදෙයි. ආරක්ෂා කළ යුතු යැයි සිතෙයි. <em>"නංගී, ඔබ අඬන්න එපා. මම ඉන්නවා. ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න."</em> Blanca හඬමින් සිනාසෙයි. අවුරුදු පන්සීයකට පෙර Xuan පැවසූ වචනම ය. <em>"ඔබට යන්න තැනක් නැත්නම් මගේ නිවසට එන්න."</em> කර්මය රවුමකි. ආදරය නැවත හමු වී ඇත. <em>"Legend of the White Snake"</em> නම් අමරණීය ආදර කතාවේ අලුත් පරිච්ඡේදය එතැනින් ඇරඹෙයි.</p>
-        </div>
+        </article>
 
-        <!-- CHAPTER 9 -->
-        <div class="chapter" id="ch9">
-            <h2>පරිච්ඡේදය 9: සර්ප බිරිඳ සහ වෛද්‍ය සැමියා</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> Hangzhou නගරයේ ජනාකීර්ණ වීදියක්. <em>"Baohetang"</em> යනුවෙන් ලියූ ලෑලි පුවරුවක්. කුඩා ලී නිවසක බෙහෙත් ශාලාවක්. ඇතුළත බෙහෙත් බෝතල් සිය ගණනක්. වියළි ඖෂධ පැළෑටි එල්ලා ඇත. වාතයේ හර්බල් සුවඳක්. කවුන්ටරය පිටුපසින් <strong>Xu Xian</strong> මිනිසුන්ට බෙහෙත් බෙදයි. මුහුණේ සැමදා පවතින අහිංසක, කරුණාවන්ත සිනාව. <em>"අම්මේ මේ බෙහෙත් වෙලාවට බොන්න. ඉක්මනින් සුව වෙයි."</em>
+        <!-- Chapter 4 -->
+        <article class="chapter" id="ch4">
+            <div class="chapter-header">
+                <div class="chapter-number">04</div>
+                <h2 class="chapter-title">වෙන්වීමේ දුක</h2>
             </div>
-            <h3>සතුටින් ජීවිතය</h3>
-            <p>ඒ අසලින් <strong>Blanca</strong> සුදු සේද වස්ත්‍රයක් ඇඳ, කේශ කලාපය ගොතා, බෙහෙත් අඹරයි. අවුරුදු පන්සීයක් පැරණි සර්ප දේවතාවිය දැන් ගෘහණියක් වී ඇත. එහෙත් දෑස් තුළ තිබූ බලය, ලස්සන තවමත් එසේම ය. ඇය සැමියා දෙස බලා හොරෙන් සිනාසෙයි.</p>
-            <p>පාන්දර සිට රාත්‍රිය දක්වා දෙදෙනා මිනිසුන්ට උදව් කරති. දුප්පත් මිනිසුන්ගෙන් මුදල් නොගනිති. <em>"අපි සල්ලි වලට නෙවෙයි බෙහෙත් දෙන්නේ, පින් වලට"</em> යැයි Xu Xian පවසයි. Blanca, Xu Xian ගේ නළලේ දාඩිය පිස දමයි. <em>"මහන්සි ද මහත්තයෝ?"</em> Xu Xian, Blanca ගේ අත අල්ලාගෙන පවසයි: <em>"ඔබ ළඟ ඉන්නකොට මට මහන්සි නැහැ නෝනා."</em> Verta ද ඔවුන් සමඟම සිටියි. ඇය නිවසේ වැඩ කරමින් කඩයට එන තරුණයන්ට විහිළු කරයි.</p>
-            <h3>ගැබ් ගැනීම</h3>
-            <p>දිනක් උදෑසන, Blanca ට එක්වරම ඔක්කාරය පැමිණෙයි. Xu Xian බියෙන් දුවගෙන එයි. <em>"Blanca! මොකද වුණේ? ලෙඩ ද?"</em> Verta, Blanca ගේ මුහුණ දෙස බලා එක්වරම සිනාසෙයි. <em>"අක්කේ! ලෙඩක් නෙවෙයි... ශුභ ආරංචියක්!"</em> Blanca ගේ දෑස් විශාල වෙයි. ඇය උදරයට අත තබයි. <em>"Verta... මම...?"</em> Xu Xian ට තේරෙයි. ඔහුගේ මුහුණ සතුටින් දිලිසෙයි. <em>"Blanca! අපිට... අපිට දරුවෙක් හම්බෙන්න ද යන්නේ?"</em> Blanca හඬමින් හිස වනයි. Xu Xian, Blanca ව පරිස්සමින් තුරුළු කර ගනියි. <em>"මගේ දෙවියනේ... ස්තූතියි... ස්තූතියි..."</em></p>
-            <h3>Fahai ගේ සෙවනැල්ල</h3>
-            <p>එහෙත් මේ සතුට වැඩි කල් පවතින්නේ නැත. දුරින් පිහිටි Jinshan පන්සලේ, <strong>Fahai හාමුදුරුවෝ</strong> භාවනා කරමින් සිටියි. උන්වහන්සේගේ නළල රැලි ගැහෙයි. <em>"හ්ම්... මනුෂ්‍ය ලෝකයේ යක්ෂ ශක්තියක්... සර්පයෙක්... මනුස්සයෙක් සමඟ එකට ඉන්නවා..."</em> උන්වහන්සේගේ අතේ ඇති යාඥා මාලය වේගයෙන් කරකවයි. <em>"මෙය ස්වභාවධර්මයට විරුද්ධයි. මහා විනාශයක් වනු ඇත. මා මෙය නැවැත්විය යුතුයි."</em> Fahai සෙමෙන් දෑස් විවර කරයි. උන්වහන්සේ Hangzhou දෙසට බලා පවසයි: <em>"ධර්මය රැකීමට මා යා යුතුයි."</em></p>
-        </div>
-
-        <!-- CHAPTER 10 -->
-        <div class="chapter" id="ch10">
-            <h2>පරිච්ඡේදය 10: Fahai හාමුදුරුවන්ගේ මැදිහත්වීම</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> Jinshan පන්සල. කඳු මුදුනක පිහිටි විශාල, පැරණි පන්සලක්. සීනු හඬ දෝංකාර දෙයි. සඳ එළියෙන් පන්සලේ සෙවනැල්ල විල මත වැටී ඇත. ඇතුළත රන් පැහැති බුද්ධ ප්‍රතිමා දහස් ගණනක්. ධූප සුවඳ. මැද ශාලාවේ <strong>Fahai හාමුදුරුවෝ</strong> භාවනාවේ යෙදී සිටියි. වයස්ගත ය, එහෙත් ශරීරය ශක්තිමත් ය. රැවුල දිගු ය, සුදු ය. කහ සිවුරක් ඇඳ ඇත. අතේ විශාල යාඥා මාලයකි. දෑස් පියාගෙන සිටිය ද මුහුණේ ඇත්තේ දැඩි කෝපයක්, ධර්මය ගැන තද විශ්වාසයක්.
+            <div class="chapter-content">
+                <p>
+                    නමුත් ආදරය සැමවිටම පහසු නොවේ. 
+                    දිව්‍ය නීති අනුව, දිව්‍ය සත්වයෙකුට මනුෂ්‍යයෙකු සමඟ ආදරය කළ නොහැක.
+                </p>
+                <p>
+                    ස්වර්ගයේ දෙවියන් වහන්සේලා සුදු මැණිකාට තීරණයක් ගැනීමට බල කළහ:
+                    <br>එනම් ඇයගේ දිව්‍ය බලය අත්හැර දමා සදාකාලිකව මනුෂ්‍යයෙකු ලෙස ජීවත් වීමට, 
+                    නැතහොත් ස්වර්ගයට ආපසු පැමිණ සියලු මතකයන් මැකී යාමට ඉඩ දීමට.
+                </p>
+                <p>
+                    ඇය තීරණය කළාය තමන්ගේ ආදරය වෙනුවෙන් සටන් කිරීමට. 
+                    නමුත් මාර්ගය පහසු නොවීය.
+                </p>
             </div>
-            <h3>Xu Xian පන්සලට ගෙන්වීම</h3>
-            <p>Fahai සිය ගෝලයෙකුට පවසයි: <em>"Hangzhou හි සිටින Xu Xian නම් වෛද්‍යවරයා වහා මෙහි කැඳවාගෙන එන්න. ඔහු විශාල අනතුරක සිටී."</em> දිනක් Baohetang බෙහෙත් ශාලාවට පන්සලේ හාමුදුරුවරු දෙදෙනෙක් පැමිණෙති. <em>"Xu Xian වෛද්‍යතුමනි, Fahai ලොකු හාමුදුරුවෝ ඔබට පන්සලට එන ලෙස ආරාධනා කළා."</em></p>
-            <p>Xu Xian බිය වෙයි. <em>"මම... මම වරදක් කළා ද?"</em> Blanca, Xu Xian ගේ අත අල්ලා ගනියි. ඇගේ දෑස්වල බියකි. <em>"මහත්තයෝ යන්න එපා. මගේ හිත හොඳ නැහැ."</em> Xu Xian සිනාසෙයි. <em>"හාමුදුරුවෝ කවදාවත් නරකක් කරන්නේ නැහැ Blanca. මම ඉක්මනින් එන්නම්."</em> Verta කෝපයෙන් බලා සිටියි.</p>
-            <h3>හිර කිරීම</h3>
-            <p>Xu Xian පන්සලට ගිය පසු Fahai ඔහු දෙස බලා සිටියි. <em>"පුතා, ඔබේ බිරිඳ මනුස්සයෙක් නෙවෙයි. ඇය අවුරුදු දහසක් පැරණි සුදු සර්ප දේවතාවියක්. යක්ෂණියක්."</em> Xu Xian ගැස්සෙයි. <em>"හාමුදුරුවනේ... ඒ... ඒ කොහොම ද...?"</em></p>
-            <p>Fahai කෝපයෙන් කෑගසයි: <em>"සතෙක් සහ මනුස්සයෙක් එකට ඉන්න එක ස්වභාවධර්මයේ නීතියට විරුද්ධයි! මෙයින් මහා විනාශයක් වෙයි! ඔබේ දරුවාත් යකෙක් වෙයි! ඔබේ බිරිඳව අතහැර දමන්න! මේ පන්සලේ නැවතී බණ භාවනා කර ඔබේ කර්මය හදාගන්න!"</em></p>
-            <p>Xu Xian හඬයි. <em>"බැහැ හාමුදුරුවනේ... මම ඇයට ආදරෙයි... ඇය ගැබ්බර... මට ඇයව දාලා යන්න බැහැ..."</em> Fahai අත දිගු කරයි. එක්වරම පන්සලේ දොරවල් වැසෙයි. රන් පැහැති මායා දම්වැල් Xu Xian ගේ දෑත්, පාද බැඳ ගනියි. <em>"ඔබට තේරෙන තුරු ඔබ මේ පන්සලේ සිරකරුවෙක්."</em></p>
-            <h3>Blanca ගේ පැමිණීම</h3>
-            <p>රාත්‍රිය වන තුරුත් Xu Xian නොපැමිණි විට Blanca ට ඉවසිය නොහැක. Verta සමඟ Jinshan පන්සල වෙත යයි. පන්සල ඉදිරිපිට සිට Blanca කෑගසයි: <em>"Xu Xian! මහත්තයෝ! කොහෙද ඉන්නේ!"</em> පන්සල උඩ සිට Fahai එළියට පැමිණෙයි. <em>"යක්ෂණිය! ඔබේ සැමියා දැන් මගේ භාරයේ. ඔබ නැවත මේ පැත්තේ ආවොත් ඔබව විනාශ කරනවා!"</em> Blanca ගේ දෑස් රතු වෙයි. <em>"මගේ සැමියාව දෙන්න! නැත්නම් මම මේ පන්සලම දෙකට කඩනවා!"</em> පන්සල ඉදිරිපිට Blanca සහ Fahai මුහුණට මුහුණ ලා සිටිති. ආදරය සහ ධර්මය අතර මහා සටන ඇරඹීමට ආසන්න ය.</p>
-        </div>
+        </article>
 
-        <!-- CHAPTER 11 -->
-        <div class="chapter" id="ch11">
-            <h2>පරිච්ඡේදය 11: Jinshan පන්සල යට කරන මහා ජලගැල්ම</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> කළු වලාකුළු. මුළු අහසම වැසී ඇත. Jinshan පන්සල පිහිටි කන්ද වටා Yangtze ගඟ ගලා බසියි. ගඟේ ජලය රළු වී, රැලි නැගෙයි. අහසේ අකුණු කෙටෙයි. පන්සලේ ගේට්ටුව ඉදිරිපිට <strong>Blanca</strong> සිටගෙන සිටියි. වැස්සට තෙමී ඇත. කේශ කලාපය අවුල් වී ඇත. එහෙත් දෑස් දෙක ගින්දරක් සේ දිලිසෙයි. ඇගේ උදරය තරමක් විශාල වී ඇත - ඇය ගැබ්බර ය. ඇය අසලින් <strong>Verta</strong> කෝපයෙන් දත් විලිස්සාගෙන සිටියි.
+        <!-- Chapter 5 -->
+        <article class="chapter" id="ch5">
+            <div class="chapter-header">
+                <div class="chapter-number">05</div>
+                <h2 class="chapter-title">පරීක්ෂණ සහ අභියෝග</h2>
             </div>
-            <h3>මහා සටන</h3>
-            <p>Blanca දෑත් එකතු කර කෑගසයි: <em>"Fahai! මගේ සැමියාව නිදහස් කරන්න! ඔහු මනුස්සයෙක්! ඔහුට තෝරා ගැනීමේ අයිතියක් තියෙනවා! ඔබේ ධර්මය නෙවෙයි ආදරය තමයි ලොකුම ධර්මය!"</em> Fahai සිනාසෙයි. <em>"යක්ෂණියකට මනුස්ස ආදරය ගැන කතා කරන්න බැහැ!"</em></p>
-            <p>Verta ට තවත් ඉවසිය නොහැක. <em>"අක්කේ, කතා කරලා වැඩක් නැහැ! මේ නාකි හාමුදුරුවට ගහමු!"</em> Blanca සහ Verta දෙදෙනා අහස දෙස බලා දෑත් ඔසවති. එක්වරම මුළු Yangtze ගඟම ඉහළට එසැවෙයි. ජල කන්දක් මෙනි. Blanca ගේ කටහඬ මුළු මිටියාවත පුරා ඇසේ: <em>"මගේ සැමියාව දෙන තුරු මම නවතින්නේ නැහැ!"</em></p>
-            <p>Fahai සිය යෂ්ටිය පොළොවට ගසයි. <em>"ඕම් මණි පද්මේ හූම්!"</em> එක්වරම පන්සල වටා රන් පැහැති මායා පවුරක් මැවෙයි. Blanca ගේ ජල සර්පයා Fahai ගේ රන් පවුරේ ගැටෙයි. <em>බූම්!</em> පොළොව දෙදරයි. ගමේ මිනිස්සු බියෙන් කෑගසති. ගඟ පිටාර ගලා නිවෙස් යට වෙයි.</p>
-            <p>Blanca ගේ නළලින් දාඩිය ගලයි. ඇය ගැබ්බර නිසා ඇගේ බලය අඩු ය. Verta <em>"අක්කේ! ඔබට අමාරුයි! නවත්තමු!"</em> ගා කෑගසයි. එහෙත් Blanca අසන්නේ නැත. එක්වරම ඇගේ උදරය රිදෙන්නට වෙයි. <em>"ආහ්!"</em> ගා ඇය දණ ගසයි. ලේ බිංදුවක් බිමට වැටෙයි. Verta බියෙන් <em>"අක්කේ! දරුවා!"</em> ගා Blanca ව අල්ලා ගනියි. Fahai උඩ සිට කෑගසයි: <em>"බැලුව ද යක්ෂණිය! ධර්මය ඉස්සරහ ඔබේ බලය මොකක් ද?"</em> Blanca ට නැගිටීමට නොහැක. Verta අක්කා ව වඩාගෙන පසුපසට යයි. ආදරය පරාද වී ඇත. ධර්මය ජයගෙන ඇත.</p>
-        </div>
-
-        <!-- CHAPTER 12 -->
-        <div class="chapter" id="ch12">
-            <h2>පරිච්ඡේදය 12: Leifeng Pagoda සිරගෙය සහ විරහව</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> වැස්ස නැවතී ඇත. හිරු බැස යන වේලාව. බටහිර විල අද්දර උස් කන්දක් මත <strong>Leifeng Pagoda</strong> - පස් මහල් විශාල පැරණි දාගැබක්. ගඩොලින් නිම වූ, අඳුරු පැහැති. අවට කිසිවෙක් නැත. සුළඟට ගස් කොළ සෙලවෙන හඬ පමණක් ඇසේ. දාගැබ තුළ යකඩ දම්වැල්වල හඬක්. ඉහළම මාලයේ කුඩා කුටියක්. ජනෙල් නැත. සඳ එළිය පමණක් කුඩා සිදුරකින් පැමිණෙයි. බිම සීතල ගල්. කුටිය මැද <strong>Blanca</strong> දම්වැල්වලින් බැඳී දණ ගසාගෙන සිටියි.
+            <div class="chapter-content">
+                <p>
+                    සුදු මැණිකාට බොහෝ පරීක්ෂණවලට මුහුණ දීමට සිදුවිය. 
+                    ඇයගේ සැබෑ අනන්‍යතාවය සොයා ගත් මිනිසුන් ඇයව විනාශ කිරීමට උත්සාහ කළහ.
+                </p>
+                <p>
+                    නමුත් ඇයගේ ආදරයේ ශක්තිය සහ ඇයගේ විශ්වාසවන්ත සේවිකාවගේ උදව්ව නිසා, 
+                    ඇය සෑම අභියෝගයකින්ම ජය ගත්තාය.
+                </p>
+                <div class="verse">
+                    "සැබෑ ආදරය කිසිවිටෙකත් පරාජය නොවේ,<br>
+                    එය සෑම බාධකයකින්ම තවත් ශක්තිමත් වේ"
+                </div>
+                <p>
+                    ඇය සහ සුදු සර්පයා එකට සිටිමින්, 
+                    සෑම දුකක්ම, සෑම සතුටක්ම බෙදා ගත්හ.
+                </p>
             </div>
-            <h3>සිර කිරීම</h3>
-            <p><strong>Fahai හාමුදුරුවෝ</strong> යෂ්ටිය අතේ තබාගෙන කුටියේ දොර අසල සිටගෙන සිටියි. <em>"Blanca, ඔබේ බලය අතිමහත් ය. ඔබ මනුෂ්‍ය ලෝකයේ සිටියොත් තවත් විනාශ සිදු වෙයි. ඔබේ දරුවා උපදින තුරු මම ඔබව මෙහි සිර කරනවා. ඉන්පසු දරුවා මනුස්සයෙකු ලෙස හැදීමට මම Xu Xian ට භාර දෙනවා."</em></p>
-            <p>Blanca සෙමෙන් හිස ඔසවයි. <em>"Fahai... ඔබ ධර්මය දන්නවා ද? ආදරය කරන මවකගෙන් දරුවෙකු වෙන් කරන එක ද ඔබේ ධර්මය? පවුලක් කඩන එක ද ඔබේ බුද්ධාගම?"</em> Fahai ගේ මුහුණේ කිසිදු වෙනසක් නැත. <em>"යක්ෂයෙකුට සහ මනුස්සයෙකුට දාව උපදින දරුවා ශාපයක්. මම ඒ ශාපය නවත්තනවා."</em> උන්වහන්සේ දොර වසා විශාල යකඩ අගුලක් දමයි. <em>"ඕම් මණි පද්මේ හූම්"</em> මන්ත්‍රයෙන් දාගැබම සීල් කරයි.</p>
-            <h3>දරුවාගේ උපත</h3>
-            <p>මාස ගණනක් ගෙවී යයි. හුදකලා දාගැබ තුළ Blanca ට වේදනාව පැමිණෙයි. <em>"අහ්!"</em> ගා ඇය කෑගසයි. ඇයට උදව් කිරීමට කිසිවෙක් නැත. සීතල ගල් බිම මත, දම්වැල් සමඟ, යක්ෂණිය තනිවම දරුවෙකු බිහි කරයි. දරුවාගේ හැඬුම් හඬ දාගැබ පුරා දෝංකාර දෙයි. පිරිමි ළමයෙකි. Blanca අමාරුවෙන් දරුවා තුරුළු කර ගනියි. <em>"පුතේ... මගේ Xu Mengjiao... ඔබේ තාත්තාගේ නමින් තමයි ඔබව නම් කළේ..."</em> ඇය දරුවාගේ නළල සිඹියි. <em>"ඔබේ තාත්තයි මමයි අවුරුදු පන්සීයක් බලාගෙන හිටියා ඔබ වෙනුවෙන්. ඔබ ලොකු වෙලා දොස්තර කෙනෙක් වෙන්න. අහිංසක මිනිස්සුන්ට උදව් කරන්න."</em></p>
-            <h3>වෙන් වීම</h3>
-            <p>එක්වරම දොර ඇරෙයි. Fahai පැමිණෙයි. <em>"දරුවාගේ කාලය පැමිණ ඇත."</em> Blanca කෑගසයි: <em>"එපා! මගේ පුතාව අල්ලන්න එපා!"</em> එහෙත් ඇයට සෙලවීමටවත් නොහැක. Fahai මන්ත්‍රයක් කියා නිදා සිටින දරුවා වඩා ගනියි. <em>"ඔබට ඔබේ දඬුවම විඳින්න වෙනවා Blanca. මේ දාගැබ කඩා වැටෙන තුරු, නැතහොත් ඔබේ පුතා උසස් රාජ්‍ය නිලධාරියෙක් වී ඔබව නිදහස් කරන තුරු ඔබ මෙහි සිර වී සිටිනවා."</em> Blanca ගේ කඳුළු දරුවාගේ මුහුණ මත වැටෙයි. <em>"Xu Mengjiao... අම්මා එනකන් බලාගෙන ඉන්න පුතේ..."</em> Fahai දරුවා රැගෙන යයි. යකඩ දොර <em>දොම්</em> ගා වැසෙයි. Leifeng Pagoda තුළ Blanca ගේ විලාපය පමණක් දෝංකාර දෙයි. මවක්, බිරිඳක්, අවුරුදු දහසක සර්ප දේවතාවියක් අද අසරණම අසරණ ලෙස සිරගෙදර ය. බලා සිටියි. අවුරුදු විස්සක, තිහක බලා සිටීමේ පොරොන්දුවක් සමඟ.</p>
-        </div>
+        </article>
 
-        <!-- CHAPTER 13 -->
-        <div class="chapter" id="ch13">
-            <h2>පරිච්ඡේදය 13: Xu Mengjiao ගේ උත්ථානය සහ Leifeng Pagoda කඩා වැටීම</h2>
-            <div class="visualize">
-                <strong>Visualize:</strong> අවුරුදු විස්සකට පසුව. වසන්තය. Hangzhou නගරය උත්සවශ්‍රීයෙන් සැරසී ඇත. රතු කොඩි, බෙර හඬ. රාජකීය පෙරහැරක් නගරය මැදින් ගමන් කරයි. අශ්වයෙකු පිට නැගී කඩවසම්, උගත් තරුණයෙක්. හිස මත රාජකීය නිලධාරියෙකුගේ තොප්පිය. වස්ත්‍රයේ රන් නූල්. ඔහු <strong>Xu Mengjiao</strong> - Blanca සහ Xu Xian ගේ පුත්‍රයා. රාජ්‍ය විභාගයෙන් මුළු චීනයෙන්ම පළමු ස්ථානය ලබා ඇත. දැන් <em>"Zhuangyuan"</em> - අධිරාජ්‍යයාගේ අලුත් උපදේශක. පෙරහැර පසුපසින් මහලු වූ <strong>Xu Xian</strong> හඬමින් ගමන් කරයි. <em>"මගේ පුතා... මගේ Blanca ගේ පුතා..."</em>
+        <!-- Chapter 6 -->
+        <article class="chapter" id="ch6">
+            <div class="chapter-header">
+                <div class="chapter-number">06</div>
+                <h2 class="chapter-title">සදාකාලික යළි හමුවීම</h2>
             </div>
-            <h3>සත්‍යය දැනගැනීම</h3>
-            <p>Xu Mengjiao රජ මාලිගාවේ සිටිය දී වයසක ඇමතිවරයෙක් ඔහුට කතාව පවසයි. <em>"පුතා, ඔබ දන්නවා ද ඔබේ අම්මා කවුද කියලා? ඔබේ තාත්තා ඔබට කියලා නැද්ද?"</em> Xu Mengjiao ගැස්සෙයි. <em>"මගේ තාත්තා කිව්වේ අම්මා ලෙඩ වෙලා නැති වුණා කියලා..."</em> ඇමතිවරයා හිස වනයි. <em>"නැහැ පුතා. ඔබේ අම්මා සුදු සර්ප දේවතාවියක්. Fahai හාමුදුරුවෝ ඇයව Leifeng Pagoda හි සිර කළා. අවුරුදු විස්සක් තිස්සේ."</em> Xu Mengjiao ගේ අතේ තිබූ තේ කෝප්පය බිම වැටී කුඩු වෙයි. <em>"මොකක්? මගේ අම්මා... ජීවතුන් අතර? සිර වෙලා?"</em> ඔහු එක්වරම නැගිටියි. <em>"මට මගේ අම්මව ඕන!"</em></p>
-            <h3>දාගැබට කඩා වැදීම</h3>
-            <p>Xu Mengjiao, Xu Xian සමඟ Leifeng Pagoda වෙත දුවගෙන එයි. Verta ද එතැනට පැමිණ ඇත. ඇය අවුරුදු විස්සක් තිස්සේ දාගැබ වටා කැරකෙමින් සිටියා ය. දාගැබ ඉදිරිපිට <strong>Fahai හාමුදුරුවෝ</strong> යෂ්ටිය අතින් ගෙන සිටගෙන සිටියි. වයසට ගොස් ඇත, එහෙත් තවමත් ශක්තිමත් ය. <em>"නවතින්න! මේ යක්ෂණියව නිදහස් කරන්න බැහැ! නීතිය නීතියමයි!"</em></p>
-            <p>Xu Mengjiao, Fahai ඉදිරියේ දණ ගසයි. <em>"හාමුදුරුවනේ, මම අධිරාජ්‍යයාගේ Zhuangyuan. මම ධර්මය දන්නවා. එහෙත් ධර්මයට වඩා ලොකු ධර්මයක් තියෙනවා - ඒ තමයි මව් සෙනෙහස. මගේ අම්මා මොන ජාතියක වුණත් ඇය මගේ අම්මා. ඇය වරදක් කරලා නැහැ. ඇය ආදරය කළා විතරයි. අහිංසක මිනිසුන්ට උදව් කළා විතරයි. ඇයව නිදහස් කරන්න!"</em></p>
-            <p>Fahai ගේ දෑස් විශාල වෙයි. <em>"ඔබ... ඔබ රාජ්‍ය නිලධාරියෙක්... ඔබේ වචනයට බලයක් තියෙනවා..."</em></p>
-            <h3>Leifeng Pagoda කඩා වැටීම</h3>
-            <p>Xu Mengjiao නැගිට දාගැබේ යකඩ දොරට අත තබයි. <em>"අම්මේ! මම ආවා! ඔබේ පුතා Xu Mengjiao!"</em></p>
-            <p>එක්වරම අහස ගිගුරුම් දෙයි. දාගැබ සෙලවෙයි. Blanca ඇතුළතින් කෑගසයි: <em>"පුතේ!"</em></p>
-            <p><strong><em>"බූම්! ක්‍රාක්!"</em></strong> යන හඬින් අවුරුදු විස්සක් පුරාවට සිර කරගෙන සිටි Leifeng Pagoda හි ගඩොල් එකින් එක කැඩී බිමට කඩා වැටෙයි. රන් පැහැති ආලෝකයක් දාගැබ තුළින් විහිදෙයි. Fahai ගේ මන්ත්‍රය බිඳ වැටෙයි. දූවිලි වලාකුළු මැදින් <strong>Blanca</strong> එළියට පැමිණෙයි. දම්වැල් කැඩී ගොසිනි. කේශ කලාපය සුළඟට ලෙල දෙයි. අවුරුදු විස්සකට පසුව හිරු එළිය ඇගේ මුහුණ මත වැටෙයි. ඇය හඬයි.</p>
-            <h3>පවුලේ යළි එකතුවීම</h3>
-            <p>Xu Xian දුවගෙන ඇවිත් Blanca ව බදා ගනියි. <em>"Blanca! මගේ Blanca! මට සමාවෙන්න... මට ඔබව බේරාගන්න බැරිවුණා..."</em> Blanca, Xu Xian ගේ මුහුණ අතගායි. <em>"Xuan... මගේ Xuan... ඔබ ආවා..."</em> Xu Mengjiao ඇවිත් දෙදෙනාවම බදා ගනියි. <em>"අම්මේ... තාත්තේ..."</em> Verta පැත්තකට වී හඬමින් සිනාසෙයි. <em>"අන්තිමට... අන්තිමට අපේ පවුල එකතු වුණා."</em></p>
-            <p>Fahai නිහඬව මේ සියල්ල බලා සිටියි. උන්වහන්සේගේ යෂ්ටිය බිමට වැටෙයි. දෑස්වලට කඳුළු පිරේ. <em>"ම... මම වරදවා තේරුම් ගත්තා... ආදරය ඉස්සරහ ධර්මය පරාද... මම බොහෝ කල් වැරදි මාර්ගයක ගියෙමි."</em></p>
-            <p>කඩා වැටුණු Leifeng Pagoda හි ගඩොල් ගොඩ මත Blanca, Xu Xian, Xu Mengjiao තිදෙනා තුරුළු වී සිටිති. බටහිර විලෙන් හමා එන සුළඟට Blanca ගේ කේශ කලාපය ලෙල දෙයි. Verta ඔවුන් අසලින් සිනාසෙයි.</p>
-            <p>අවුරුදු පන්සිය විස්සක වෛරය, විරහව, කඳුළු වලින් ආරම්භ වූ කතාව, අද ආදරයෙන්, සමාව දීමෙන්, පවුලේ එකතු වීමෙන් අවසන් වෙයි. සුදු සර්පයාගේ පුරාවෘත්තය සදාකාලික ආදර කතාවක් බවට පත් වී ඉතිහාසයට එකතු වෙයි.</p>
-            <p class="final-words"><strong>· සැබෑ ආදරය කිසිදා මැකෙන්නේ නැත ·</strong></p>
-            <p class="final-words" style="font-size:1em;color:var(--text-dim);">එය ජීවිතෙන් ජීවිතයට, යුගයෙන් යුගයට, සදාකාලිකව ලියැවෙයි.</p>
-        </div>
+            <div class="chapter-content">
+                <p>
+                    අවසානයේදී, ඔවුන්ගේ ආදරයේ ශක්තිය ස්වර්ගයේ දෙවියන් වහන්සේලාගේ හදවත් දිනා ගත්තේය.
+                </p>
+                <p>
+                    දෙවියන් වහන්සේලා ඔවුන්ට වරමක් ලබා දුන්නේය:
+                    <br>ඔවුන්ට සදාකාලිකව එකට ජීවත් විය හැකි බවට.
+                </p>
+                <p>
+                    සුදු මැණිකා සහ සුදු සර්පයා අවසානයේදී විවාහ වූහ. 
+                    ඔවුන්ගේ ආදර කථාව ලොව පුරා පැතිර ගියේය, 
+                    සියලු දෙනාට ආදරයේ සැබෑ අර්ථය ඉගැන්වූහ.
+                </p>
+                <div class="verse">
+                    "ආදරය යනු අවසානයක් නැති ගමනකි,<br>
+                    එය සෑම දිනකම අලුතින් ආරම්භ වේ"
+                </div>
+                <p class="highlight" style="text-align: center; font-size: 1.3rem; margin-top: 2rem;">
+                    ❤️ මෙම කථාව ඔබ වෙනුවෙන්ම කැප කරනු ලැබේ ❤️
+                </p>
+            </div>
+        </article>
+    </main>
 
-        <div class="divider">❤️ 🐍 ❤️</div>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/>
+        </svg>
+    </button>
 
-    </div>
-
-    <footer>
-        <p class="footer-dedication">
-            I love you sudu manika <span class="heart-icon">❤️</span><span class="heart-icon">🖤</span>
-        </p>
-        <p class="footer-forever">forever with you ❤️🖤</p>
-        <p style="color:var(--text-dim);font-size:0.9em;margin-bottom:6px;">— මේ කතාව ඔබ වෙනුවෙන් —</p>
-        <p class="footer-credit">
-            Created with <span>❤️</span> by <span>K. Sithara</span> · සුදු මැණිකා වෙනුවෙන්
-        </p>
-        <p class="footer-credit" style="margin-top:5px;font-size:0.75em;">
-            සුදු සර්පයාගේ පුරාවෘත්තය · Legend of the White Snake · Bai She Zhuan · 白蛇传
-        </p>
-        <p class="footer-credit" style="margin-top:10px;font-size:0.7em;opacity:0.6;">
-            අවුරුදු 1000කට වඩා පැරණි චීන ජනප්‍රවාදයක් ඇසුරින් · සිංහල පරිවර්තනය
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-heart">❤️</div>
+        <p class="footer-text">සාදා ඇත්තේ ආදරයෙනි</p>
+        <p class="footer-love">ඔබ වෙනුවෙන්ම, මගේ ආදරණීය බිරිඳ වෙනුවෙන්</p>
+        <p class="footer-text" style="margin-top: 1rem; font-size: 0.9rem;">
+            සදාකාලික ආදරය සමඟ 🖤
         </p>
     </footer>
 
     <script>
-        // Loading Screen
+        // Hide loader when page is fully loaded
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             setTimeout(() => {
                 loader.classList.add('hidden');
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 800);
-            }, 1500);
+            }, 800);
         });
 
-        // Reading Progress Bar
-        window.addEventListener('scroll', () => {
-            const progressBar = document.getElementById('progressBar');
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
-        });
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
 
-        // Scroll to Top Button
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 5 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(particle);
             }
+        }
+        createParticles();
+
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const heartCount = 20;
+            const hearts = ['❤️', '💕', '💗', '💖', '💓'];
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                heart.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            observer.observe(chapter);
         });
 
-        scrollTopBtn.addEventListener('click', () => {
+        // Sticky navigation and back to top button
+        const stickyNav = document.getElementById('stickyNav');
+        const backToTop = document.getElementById('backToTop');
+        const heroSection = document.getElementById('hero');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+            // Show sticky nav when scrolling past hero
+            if (scrollY > heroBottom - 100) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+
+            // Show back to top button
+            if (scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Update active chapter in sticky nav
+            const chapters = document.querySelectorAll('.chapter');
+            const navLinks = stickyNav.querySelectorAll('a');
+
+            chapters.forEach((chapter, index) => {
+                const rect = chapter.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const chapterNum = index + 1;
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === '#ch' + chapterNum) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to top functionality
+        backToTop.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
 
-        // Chapter highlight on scroll
-        const chapters = document.querySelectorAll('.chapter');
-        const navLinks = document.querySelectorAll('nav a');
-
+        // Add subtle parallax effect to hero
         window.addEventListener('scroll', () => {
-            let current = '';
-            chapters.forEach(chapter => {
-                const chapterTop = chapter.offsetTop - 150;
-                if (window.pageYOffset >= chapterTop) {
-                    current = chapter.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        const floatingHeartsContainer = document.getElementById('floatingHearts');
-        const heartBtn = document.getElementById('heartBtn');
-        const TOTAL_HEARTS = 25;
-
-        function createFloatingHeart() {
-            const heart = document.createElement('span');
-            heart.classList.add('floating-heart');
-            const symbols = ['❤️', '🖤', '💕', '💖', '🐍', '❤️‍🔥', '💗', '🖤❤️'];
-            heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            heart.style.left = Math.random() * 94 + '%';
-            heart.style.fontSize = (12 + Math.random() * 24) + 'px';
-            heart.style.animationDuration = (7 + Math.random() * 15) + 's';
-            heart.style.animationDelay = Math.random() * 9 + 's';
-            floatingHeartsContainer.appendChild(heart);
-            heart.addEventListener('animationend', () => heart.remove());
-        }
-
-        for (let i = 0; i < TOTAL_HEARTS; i++) {
-            setTimeout(() => createFloatingHeart(), i * 350);
-        }
-        setInterval(() => {
-            if (floatingHeartsContainer.children.length < TOTAL_HEARTS) {
-                createFloatingHeart();
-            }
-        }, 3200);
-
-        heartBtn.addEventListener('click', () => {
-            for (let i = 0; i < 12; i++) {
-                setTimeout(() => {
-                    const burstHeart = document.createElement('span');
-                    burstHeart.classList.add('floating-heart');
-                    burstHeart.textContent = ['❤️', '🖤', '💕'][Math.floor(Math.random() * 3)];
-                    burstHeart.style.left = '48%';
-                    burstHeart.style.top = '55px';
-                    burstHeart.style.fontSize = '18px';
-                    burstHeart.style.animationDuration = (2.5 + Math.random() * 4) + 's';
-                    burstHeart.style.animationDelay = '0s';
-                    burstHeart.style.setProperty('--drift', (Math.random() - 0.5) * 250 + 'px');
-                    burstHeart.style.animation = `burstOut ${2.5 + Math.random() * 4}s ease-out forwards`;
-                    floatingHeartsContainer.appendChild(burstHeart);
-                    burstHeart.addEventListener('animationend', () => burstHeart.remove());
-                }, i * 50);
+            const scrollY = window.scrollY;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrollY < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
+                heroContent.style.opacity = 1 - (scrollY / window.innerHeight) * 0.7;
             }
         });
-
-        const burstStyle = document.createElement('style');
-        burstStyle.textContent = `
-                    @keyframes burstOut {
-                        0% { transform: translate(0, 0) scale(1); opacity: 1; }
-                        100% { transform: translate(calc(var(--drift, 60px)), -350px) scale(0.15); opacity: 0; }
-                    }
-                `;
-        document.head.appendChild(burstStyle);
-
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    target.style.boxShadow = '0 0 50px rgba(200,16,46,0.7), 0 12px 45px rgba(0,0,0,0.6)';
-                    setTimeout(() => { target.style.boxShadow = ''; }, 2000);
-                }
-            });
-        });
-
-        console.log('%c🐍 සුදු සර්පයාගේ පුරාවෘත්තය %c❤️🖤',
-            'font-size:1.6em;color:#e8233d;', 'font-size:1.6em;');
-        console.log('%cI love you sudu manika ❤️🖤 forever with you.%c',
-            'color:#c9a84c;font-style:italic;font-size:1.1em;', '');
     </script>
 </body>
 </html>
